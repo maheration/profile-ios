@@ -15,3 +15,19 @@ let BASE_API_URL = "http://localhost:3000/v1"
 
 // GET all codes
 let GET_ALL_CODES = "\(BASE_API_URL)/codes/"
+
+//Boolean auth UserDefaults keys
+let DEFAULTS_REGISTERED = "isRegistered"
+let DEFAULTS_AUTHENTICATED = "isAuthenticated"
+
+
+//Auth email
+let DEFAULTS_EMAIL = "email"
+
+//Auth Token
+let DEFAULTS_TOKEN = "authToken"
+
+// REGISTER url
+let POST_REGISTER_ACCT = "\(BASE_API_URL)/account/register"
+
+let POST_LOGIN_ACCT = "\(BASE_API_URL)/account/login"

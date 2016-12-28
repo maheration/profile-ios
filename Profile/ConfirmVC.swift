@@ -13,6 +13,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
     @IBOutlet weak var codeTxtFld: MaterialTxtFld!
     var dataService = DataService.instance
     var admin = false
+    var isCodeCorrect = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +22,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
     }
     
     func codesLoaded() {
-//        guard let codeTxt = codeTxtFld.text, codeTxtFld.text != "" else {
-//            //show alert
-//            return
-//        }
-//        for code in dataService.codes {
-//            if codeTxt == code.code {
-//                if code.role == "admin" {
-//                    admin = true
-//                } else {
-//                    admin = false
-//                }
-//                performSegue(withIdentifier: "showRegisterVC", sender: self)
-//            }
-//        }
+
         OperationQueue.main.addOperation {
 
             guard let codeTxt = self.codeTxtFld.text, self.codeTxtFld.text != "" else {
@@ -43,6 +31,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
                     }
                     for code in self.dataService.codes {
                         if codeTxt == code.code {
+                            self.isCodeCorrect = true
                             if code.role == "admin" {
                                 self.admin = true
                             } else {
@@ -51,6 +40,10 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
                             self.performSegue(withIdentifier: "showRegisterVC", sender: self)
                         }
                     }
+         
+            if self.isCodeCorrect == false {
+                print("Wrong code BITCH!")
+            }
         }
         
     }
@@ -69,7 +62,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
     
     @IBAction func codeSubmit(_ sender: UIButton) {
         dataService.getAllCodes()
-//        codesLoaded()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

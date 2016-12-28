@@ -23,6 +23,8 @@
 		48C747101E136D540096682F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7470F1E136D540096682F /* Constants.swift */; };
 		48DDF2F51E1375EA003A1C89 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */; };
 		48E043431E135B3F003237ED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E043421E135B3F003237ED /* AuthService.swift */; };
+		48E9365F1E143A7600726A8E /* AdminMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9365E1E143A7600726A8E /* AdminMainVC.swift */; };
+		48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E936601E143A8400726A8E /* PatientMainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		48C7470F1E136D540096682F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		48E043421E135B3F003237ED /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		48E9365E1E143A7600726A8E /* AdminMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminMainVC.swift; sourceTree = "<group>"; };
+		48E936601E143A8400726A8E /* PatientMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				48A3EC7A1DFCCE0900683867 /* MainVC.swift */,
 				482C97ED1E10845B0048756D /* ConfirmVC.swift */,
 				48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */,
+				48E9365E1E143A7600726A8E /* AdminMainVC.swift */,
+				48E936601E143A8400726A8E /* PatientMainVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -276,11 +282,13 @@
 				48C7470C1E136A9E0096682F /* Codes.swift in Sources */,
 				488C78891E11F236009C5549 /* Medication.swift in Sources */,
 				48A3EC7F1DFCD0C300683867 /* Plan.swift in Sources */,
+				48E9365F1E143A7600726A8E /* AdminMainVC.swift in Sources */,
 				48A3EC561DFCCD7900683867 /* AppDelegate.swift in Sources */,
 				482C97EC1E1082BD0048756D /* MaterialButton.swift in Sources */,
 				482C97F01E10852A0048756D /* MaterialTxtFld.swift in Sources */,
 				48A3EC7B1DFCCE0900683867 /* MainVC.swift in Sources */,
 				48DDF2F51E1375EA003A1C89 /* RegisterVC.swift in Sources */,
+				48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */,
 				48E043431E135B3F003237ED /* AuthService.swift in Sources */,
 				48C7470E1E136C280096682F /* DataService.swift in Sources */,
 			);
