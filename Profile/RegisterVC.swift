@@ -1,19 +1,20 @@
 //
-//  MainVC.swift
+//  RegisterVC.swift
 //  Profile
 //
-//  Created by Maher Aldemerdash on 2016-12-10.
+//  Created by Maher Aldemerdash on 2016-12-27.
 //  Copyright © 2016 Maher Aldemerdash. All rights reserved.
 //
 
 import UIKit
 
-class MainVC: UIViewController {
+class RegisterVC: UIViewController {
+    
+    var isAdmin = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print(isAdmin)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,9 +22,5 @@ class MainVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signUpBtnPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showConfirmVC", sender: nil)
-    }
 
-    
 }
