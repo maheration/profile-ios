@@ -21,6 +21,10 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
         dataService.delegate = self
     }
     
+    func patientsLoaded() {
+        
+    }
+    
     func codesLoaded() {
 
         OperationQueue.main.addOperation {

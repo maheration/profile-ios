@@ -49,6 +49,15 @@ class AuthService {
         }
     }
     
+    var isAdmin : Bool? {
+        get {
+            return defaults.value(forKey: DEFAULT_ADMIN) as? Bool
+        }
+        set {
+            defaults.set(newValue, forKey: DEFAULT_ADMIN)
+        }
+    }
+    
     func registerUser(email username: String, password: String,firstName: String, lastName: String, isAdmin: Bool, completion: @escaping callback) {
         let json = ["username": username, "firstName": firstName, "lastName": lastName, "password": password, "admin": isAdmin] as [String : Any]
         let sessionConfig = URLSessionConfiguration.default
@@ -138,6 +147,7 @@ class AuthService {
                                 if let email = result?["user"] as? String {
                                     if let token = result?["token"] as? String {
                                         //successfully authinticated and have a token
+                                        self.isAdmin = result!["isAdmin"] as? Bool
                                         self.email = email
                                         self.authToken = token
                                         self.isRegistered = true

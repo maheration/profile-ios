@@ -10,6 +10,7 @@ import Foundation
 
 protocol DataServiceDelegate: class {
     func codesLoaded()
+    func patientsLoaded()
 }
 
 class DataService {
@@ -17,7 +18,7 @@ class DataService {
     
     weak var delegate: DataServiceDelegate?
     var codes = [Codes]()
-    
+    var patients = [Patient]()
     
     //GET all codes 
     func getAllCodes() {
@@ -46,5 +47,37 @@ class DataService {
         task.resume()
         session.finishTasksAndInvalidate()
     }
+    
+    //GET all patients
+    func getAllPatients() {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        guard let url = URL(string: GET_ALL_PTS) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        guard let token = AuthService.instance.authToken else { return }
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = session.dataTask(with: request, completionHandler: {(data: Data?, response: URLResponse?, error: Error?) -> Void in
+            if (error == nil) {
+                //success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session success: HTTP \(statusCode)")
+                if let data = data {
+                    self.patients = Patient.parsePatientsJSONData(data: data)
+                    self.delegate?.patientsLoaded()
+                }
+            } else {
+                //Failure
+                print("Url session task failed: \(error!.localizedDescription)")
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    
+    
     
 }

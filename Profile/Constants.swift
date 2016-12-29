@@ -27,7 +27,13 @@ let DEFAULTS_EMAIL = "email"
 //Auth Token
 let DEFAULTS_TOKEN = "authToken"
 
+let DEFAULT_ADMIN = "isAdmin"
+
 // REGISTER url
 let POST_REGISTER_ACCT = "\(BASE_API_URL)/account/register"
 
+//Login Url
 let POST_LOGIN_ACCT = "\(BASE_API_URL)/account/login"
+
+//get all patients url
+let GET_ALL_PTS = "\(BASE_API_URL)/account/"

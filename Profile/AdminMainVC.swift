@@ -8,28 +8,80 @@
 
 import UIKit
 
-class AdminMainVC: UIViewController {
+class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DataServiceDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var dataService = DataService.instance
+    var filteredPatients = [Patient]()
+    var inSearchMode = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        dataService.delegate = self
+        searchBar.delegate = self
+        dataService.getAllPatients()
+        searchBar.returnKeyType = .done
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filteredPatients.count
+        }
+        return dataService.patients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as? PatientCell {
+            var patient : Patient!
+            if inSearchMode {
+                patient = filteredPatients[indexPath.row]
+            } else {
+                patient = dataService.patients[indexPath.row]
+            }
+            cell.configureCell(patient: patient)
+            return cell
+        }
+        return UITableViewCell()
+    }
+
+    func patientsLoaded() {
+        OperationQueue.main.addOperation {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func codesLoaded() {
+        //nothing to do here
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            tableView.reloadData()
+        } else {
+            inSearchMode = true
+            let lowerCaseTxt = searchBar.text!.lowercased()
+            filteredPatients = dataService.patients.filter({$0.lastName.range(of: lowerCaseTxt) != nil })
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
 
 }

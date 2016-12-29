@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480F84641E1583F300E7596E /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F84631E1583F300E7596E /* PatientCell.swift */; };
 		482C97EC1E1082BD0048756D /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97EB1E1082BD0048756D /* MaterialButton.swift */; };
 		482C97EE1E10845B0048756D /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97ED1E10845B0048756D /* ConfirmVC.swift */; };
 		482C97F01E10852A0048756D /* MaterialTxtFld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97EF1E10852A0048756D /* MaterialTxtFld.swift */; };
 		488C78891E11F236009C5549 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C78881E11F236009C5549 /* Medication.swift */; };
+		488F218B1E14A3CC00084B5D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F218A1E14A3CC00084B5D /* LoginVC.swift */; };
 		48A3EC561DFCCD7900683867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3EC551DFCCD7900683867 /* AppDelegate.swift */; };
 		48A3EC5B1DFCCD7900683867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A3EC591DFCCD7900683867 /* Main.storyboard */; };
 		48A3EC5D1DFCCD7900683867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A3EC5C1DFCCD7900683867 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		48E043431E135B3F003237ED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E043421E135B3F003237ED /* AuthService.swift */; };
 		48E9365F1E143A7600726A8E /* AdminMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9365E1E143A7600726A8E /* AdminMainVC.swift */; };
 		48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E936601E143A8400726A8E /* PatientMainVC.swift */; };
+		48F9C6C01E15A27200392CE6 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9C6BF1E15A27200392CE6 /* MaterialView.swift */; };
+		48F9C6C21E15A57400392CE6 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9C6C11E15A57400392CE6 /* Patient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480F84631E1583F300E7596E /* PatientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		482C97EB1E1082BD0048756D /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		482C97ED1E10845B0048756D /* ConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
 		482C97EF1E10852A0048756D /* MaterialTxtFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTxtFld.swift; sourceTree = "<group>"; };
 		488C78881E11F236009C5549 /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		488F218A1E14A3CC00084B5D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		48A3EC521DFCCD7900683867 /* Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A3EC551DFCCD7900683867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A3EC5A1DFCCD7900683867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 		48E043421E135B3F003237ED /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		48E9365E1E143A7600726A8E /* AdminMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminMainVC.swift; sourceTree = "<group>"; };
 		48E936601E143A8400726A8E /* PatientMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMainVC.swift; sourceTree = "<group>"; };
+		48F9C6BF1E15A27200392CE6 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		48F9C6C11E15A57400392CE6 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,7 @@
 				48A3EC7E1DFCD0C300683867 /* Plan.swift */,
 				488C78881E11F236009C5549 /* Medication.swift */,
 				48C7470B1E136A9E0096682F /* Codes.swift */,
+				48F9C6C11E15A57400392CE6 /* Patient.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -145,6 +154,8 @@
 				48A3EC591DFCCD7900683867 /* Main.storyboard */,
 				482C97EB1E1082BD0048756D /* MaterialButton.swift */,
 				482C97EF1E10852A0048756D /* MaterialTxtFld.swift */,
+				480F84631E1583F300E7596E /* PatientCell.swift */,
+				48F9C6BF1E15A27200392CE6 /* MaterialView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 				48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */,
 				48E9365E1E143A7600726A8E /* AdminMainVC.swift */,
 				48E936601E143A8400726A8E /* PatientMainVC.swift */,
+				488F218A1E14A3CC00084B5D /* LoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -288,9 +300,13 @@
 				482C97F01E10852A0048756D /* MaterialTxtFld.swift in Sources */,
 				48A3EC7B1DFCCE0900683867 /* MainVC.swift in Sources */,
 				48DDF2F51E1375EA003A1C89 /* RegisterVC.swift in Sources */,
+				48F9C6C21E15A57400392CE6 /* Patient.swift in Sources */,
 				48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */,
+				480F84641E1583F300E7596E /* PatientCell.swift in Sources */,
 				48E043431E135B3F003237ED /* AuthService.swift in Sources */,
 				48C7470E1E136C280096682F /* DataService.swift in Sources */,
+				488F218B1E14A3CC00084B5D /* LoginVC.swift in Sources */,
+				48F9C6C01E15A27200392CE6 /* MaterialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

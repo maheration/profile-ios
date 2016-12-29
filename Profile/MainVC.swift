@@ -25,5 +25,8 @@ class MainVC: UIViewController {
         performSegue(withIdentifier: "showConfirmVC", sender: nil)
     }
 
+    @IBAction func loginBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "showLoginVC", sender: self)
+    }
     
 }
