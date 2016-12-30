@@ -44,4 +44,13 @@ class AdminPatientViewVC: UIViewController {
     func medsBtnTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showAdminMedsVC", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAdminPlanVC" {
+            let destinVC = segue.destination as! AdminPlanVC
+            if let transPatient = transferredPatient {
+                destinVC.patient = transPatient
+            }
+        }
+    }
 }

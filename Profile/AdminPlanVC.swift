@@ -8,17 +8,92 @@
 
 import UIKit
 
-class AdminPlanVC: UIViewController {
-
+class AdminPlanVC: UIViewController, DataServiceDelegate {
+    
+    //outlets
+    @IBOutlet weak var dxBG: UIView!
+    @IBOutlet weak var dxLbl: UILabel!
+    @IBOutlet weak var labsBg: UIView!
+    @IBOutlet weak var labsLbl: UILabel!
+    @IBOutlet weak var planBg: UIView!
+    @IBOutlet weak var planLbl: UILabel!
+    @IBOutlet weak var addPlanBtn: UIButton!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var lblTxt : UILabel!
+    var isPlanEmpty = true
+    let dataService = DataService.instance
+    var patient : Patient?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        dataService.delegate = self
+        dxBG.isHidden = true
+        dxLbl.isHidden = true
+        labsBg.isHidden = true
+        labsLbl.isHidden = true
+        planBg.isHidden = true
+        planLbl.isHidden = true
+        activityIndicator.startAnimating()
+        
+        if let transPatient = patient {
+            dataService.getPatientPlan(transPatient.id)
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func planLoaded() {
+        
+        OperationQueue.main.addOperation {
+            print("plan loaded")
+            if self.dataService.plans.count > 0 {
+                self.editBtn.isHidden = false
+                self.lblTxt.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.dxBG.isHidden = false
+                self.dxLbl.isHidden = false
+                self.labsBg.isHidden = false
+                self.labsLbl.isHidden = false
+                self.planBg.isHidden = false
+                self.planLbl.isHidden = false
+                self.addPlanBtn.isHidden = true
+                self.dxLbl.text = self.dataService.plans[0].dx
+                self.labsLbl.text = self.dataService.plans[0].labs
+                self.planLbl.text = self.dataService.plans[0].plan
+                
+            } else {
+                self.editBtn.isHidden = true
+                self.lblTxt.isHidden = false
+                self.activityIndicator.stopAnimating()
+                self.dxBG.isHidden = true
+                self.dxLbl.isHidden = true
+                self.labsBg.isHidden = true
+                self.labsLbl.isHidden = true
+                self.planBg.isHidden = true
+                self.planLbl.isHidden = true
+                self.addPlanBtn.isHidden = false
+            }
+        }
+    }
+    
+    func patientsLoaded() {
+        //nothing to do
+    }
+    
+    func codesLoaded() {
+        //nothing to do
     }
 
+    @IBAction func addBtnPressed(_ sender: Any) {
+    }
+    @IBAction func editBtnPressed(_ sender: Any) {
+    }
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

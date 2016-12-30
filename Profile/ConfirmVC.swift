@@ -25,6 +25,10 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
         
     }
     
+    func planLoaded() {
+        
+    }
+    
     func codesLoaded() {
 
         OperationQueue.main.addOperation {

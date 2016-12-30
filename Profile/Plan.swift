@@ -20,16 +20,18 @@ class Plan {
         do {
             
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-            if let plans = jsonResult as? [Dictionary<String, AnyObject>] {
+            if let plans = jsonResult as? [Dictionary<String,AnyObject>] {
+              
                 for plan in plans {
                     let newPlan = Plan()
                     newPlan.id = plan["_id"] as! String
                     newPlan.dx = plan["dx"] as! String
-                    newPlan.labs = plan["labs"] as! String
                     newPlan.plan = plan["plan"] as! String
+                    newPlan.labs = plan["labs"] as! String
                     
                     planArr.append(newPlan)
                 }
+                
             }
             
         } catch let err {
