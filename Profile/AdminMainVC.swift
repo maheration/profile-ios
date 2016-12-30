@@ -83,5 +83,20 @@ class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAdminPatientViewVC" {
+            var selectedPatient : Patient?
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if inSearchMode {
+                    selectedPatient = filteredPatients[indexPath.row]
+                } else {
+                    selectedPatient = dataService.patients[indexPath.row]
+                }
+                let destinVC = segue.destination as! AdminPatientViewVC
+                destinVC.transferredPatient = selectedPatient
+            }
+        }
+    }
 
 }
