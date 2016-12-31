@@ -63,7 +63,7 @@ class RegisterVC: UIViewController {
     }
     @IBAction func backBtnPressed(_ sender: UIButton) {
         OperationQueue.main.addOperation {
-            self.navigationController?.popViewController(animated: true)
+            let _ = self.navigationController?.popViewController(animated: true)
         }
     }
 

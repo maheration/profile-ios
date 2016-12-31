@@ -34,7 +34,7 @@ class AdminPatientViewVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+       let _ = self.navigationController?.popViewController(animated: true)
     }
     
     func planBtntapped(_ sender: UITapGestureRecognizer) {

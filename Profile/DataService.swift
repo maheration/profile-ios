@@ -108,6 +108,54 @@ class DataService {
     }
     
     
+    //POST a new plan
+    
+    func postNewPlan(_ id: String, dx: String, plan: String, labs: String, completion: @escaping callback) {
+        let json : [String: Any] = ["dx": dx, "plan": plan, "labs": labs]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let url = URL(string: "\(GET_PT_PLAN)/\(id)/add") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            guard let token = AuthService.instance.authToken else { return }
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+                if (error == nil) {
+                    //success
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print("Status code is \(statusCode)")
+                    if statusCode != 200 {
+                        completion(false)
+                        return
+                    } else {
+                        completion(true)
+                        self.getPatientPlan(id)
+                    }
+                } else {
+                    //Failure
+                    print("URL SESSION failed HTTP: \(error!.localizedDescription)")
+                    completion(false)
+                }
+            })
+            task.resume()
+            session.finishTasksAndInvalidate()
+            
+        } catch let err {
+            print(err)
+            completion(false)
+        }
+    }
+    
+    
+    
+    
+    
     
     
     

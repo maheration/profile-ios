@@ -8,21 +8,42 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTxtFld: MaterialTxtFld!
     @IBOutlet weak var passwordTxtFld: MaterialTxtFld!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginVC .keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismiss(notification:)))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
+    
+    func dismiss(notification: NSNotification) {
+        view.endEditing(true)
+    }
+    
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func loginBtnPressed(_ sender: UIButton) {

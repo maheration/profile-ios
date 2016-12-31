@@ -23,6 +23,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var lblTxt : UILabel!
+    
     var isPlanEmpty = true
     let dataService = DataService.instance
     var patient : Patient?
@@ -90,10 +91,20 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     }
 
     @IBAction func addBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showAddPlanVC", sender: self)
     }
     @IBAction func editBtnPressed(_ sender: Any) {
     }
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAddPlanVC" {
+            let destinVC = segue.destination as! AddPlanVC
+            if let transPatient = patient {
+                destinVC.patientId = transPatient.id
+            }
+        }
     }
 }
