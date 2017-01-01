@@ -15,7 +15,7 @@ class MaterialTextView: UITextView {
         layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 1.5
         
-        self.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        self.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 0.08)
     }
 

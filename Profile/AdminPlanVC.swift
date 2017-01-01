@@ -94,6 +94,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
         performSegue(withIdentifier: "showAddPlanVC", sender: self)
     }
     @IBAction func editBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showEditPlanVC", sender: self)
     }
     @IBAction func backBtnPressed(_ sender: UIButton) {
         let _ = self.navigationController?.popViewController(animated: true)
@@ -104,6 +105,13 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
             let destinVC = segue.destination as! AddPlanVC
             if let transPatient = patient {
                 destinVC.patientId = transPatient.id
+            }
+        }
+        
+        if segue.identifier == "showEditPlanVC" {
+            let destinVC = segue.destination as! EditPlanVC
+            if let transPatient = patient {
+                destinVC.transPatient = transPatient
             }
         }
     }

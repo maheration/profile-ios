@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4801DB571E19712A006B01BA /* EditPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801DB561E19712A006B01BA /* EditPlanVC.swift */; };
 		480F84641E1583F300E7596E /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F84631E1583F300E7596E /* PatientCell.swift */; };
 		4814FB081E173F06007D00C4 /* AddPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814FB071E173F06007D00C4 /* AddPlanVC.swift */; };
 		482C97EC1E1082BD0048756D /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97EB1E1082BD0048756D /* MaterialButton.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4801DB561E19712A006B01BA /* EditPlanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlanVC.swift; sourceTree = "<group>"; };
 		480F84631E1583F300E7596E /* PatientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		4814FB071E173F06007D00C4 /* AddPlanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlanVC.swift; sourceTree = "<group>"; };
 		482C97EB1E1082BD0048756D /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				48B6536C1E16B2FB00EB2327 /* AdminPlanVC.swift */,
 				48B6536E1E16B31000EB2327 /* AdminMedsVC.swift */,
 				4814FB071E173F06007D00C4 /* AddPlanVC.swift */,
+				4801DB561E19712A006B01BA /* EditPlanVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				488C78891E11F236009C5549 /* Medication.swift in Sources */,
 				48B6536D1E16B2FB00EB2327 /* AdminPlanVC.swift in Sources */,
 				48A3EC7F1DFCD0C300683867 /* Plan.swift in Sources */,
+				4801DB571E19712A006B01BA /* EditPlanVC.swift in Sources */,
 				48E9365F1E143A7600726A8E /* AdminMainVC.swift in Sources */,
 				48A3EC561DFCCD7900683867 /* AppDelegate.swift in Sources */,
 				482C97EC1E1082BD0048756D /* MaterialButton.swift in Sources */,
