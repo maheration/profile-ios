@@ -52,5 +52,12 @@ class AdminPatientViewVC: UIViewController {
                 destinVC.patient = transPatient
             }
         }
+        
+        if segue.identifier == "showAdminMedsVC" {
+            let destinVC = segue.destination as! AdminMedsVC
+            if let pt = transferredPatient {
+                destinVC.patientId = pt.id
+            }
+        }
     }
 }

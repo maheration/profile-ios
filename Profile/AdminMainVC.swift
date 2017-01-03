@@ -102,5 +102,8 @@ class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func planLoaded() {
         
     }
+    func medsLoaded() {
+        
+    }
 
 }

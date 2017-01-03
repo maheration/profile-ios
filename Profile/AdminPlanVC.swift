@@ -51,7 +51,6 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     func planLoaded() {
         
         OperationQueue.main.addOperation {
-            print("plan loaded")
             if self.dataService.plans.count > 0 {
                 self.editBtn.isHidden = false
                 self.lblTxt.isHidden = true
@@ -114,5 +113,9 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
                 destinVC.transPatient = transPatient
             }
         }
+    }
+    
+    func medsLoaded() {
+        
     }
 }

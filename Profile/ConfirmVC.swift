@@ -81,5 +81,9 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
         }
     }
     
+    func medsLoaded() {
+        
+    }
+    
 }
 

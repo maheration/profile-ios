@@ -28,6 +28,9 @@ let GET_ALL_PTS = "\(BASE_API_URL)/account/"
 // GET plan
 let GET_PT_PLAN = "\(BASE_API_URL)/plan/"
 
+//GET meds
+let GET_PT_MEDS = "\(BASE_API_URL)/meds"
+
 //Boolean auth UserDefaults keys
 let DEFAULTS_REGISTERED = "isRegistered"
 let DEFAULTS_AUTHENTICATED = "isAuthenticated"

@@ -24,7 +24,7 @@ class Medication {
                     let newMed = Medication()
                     newMed.name = med["name"] as! String
                     newMed.disc = med["disc"] as! String
-                    newMed.id = med["id"] as! String
+                    newMed.id = med["_id"] as! String
                     
                     medsArr.append(newMed)
                 }
