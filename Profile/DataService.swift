@@ -195,35 +195,6 @@ class DataService {
         }
     }
     
-    
-    // GET Meds
-//    func getAllPatients() {
-//        let sessionConfig = URLSessionConfiguration.default
-//        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-//        
-//        guard let url = URL(string: GET_ALL_PTS) else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//        guard let token = AuthService.instance.authToken else { return }
-//        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        
-//        let task = session.dataTask(with: request, completionHandler: {(data: Data?, response: URLResponse?, error: Error?) -> Void in
-//            if (error == nil) {
-//                //success
-//                let statusCode = (response as! HTTPURLResponse).statusCode
-//                print("URL Session success: HTTP \(statusCode)")
-//                if let data = data {
-//                    self.patients = Patient.parsePatientsJSONData(data: data)
-//                    self.delegate?.patientsLoaded()
-//                }
-//            } else {
-//                //Failure
-//                print("Url session task failed: \(error!.localizedDescription)")
-//            }
-//        })
-//        task.resume()
-//        session.finishTasksAndInvalidate()
-//    }
 
     func getPatientMeds(_ id: String) {
         let sessionConfig = URLSessionConfiguration.default
@@ -251,4 +222,116 @@ class DataService {
         task.resume()
         session.finishTasksAndInvalidate()
     }
+    
+    //POST a new med
+    
+    func addNewMed(_ id: String, name: String, disc: String, completion: @escaping callback) {
+        let json : [String: Any] = ["name": name, "disc": disc]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let url = URL(string: "\(GET_PT_MEDS)/\(id)/add") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            guard let token = AuthService.instance.authToken else { return }
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+                if (error == nil) {
+                    //success
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    if statusCode != 200 {
+                        completion(false)
+                        return
+                    } else {
+                        completion(true)
+                        self.getPatientMeds(id)
+                    }
+                } else {
+                    //Failure
+                    print("URL session fauled HTTP: \(error!.localizedDescription)")
+                    completion(true)
+                }
+            })
+            task.resume()
+            session.finishTasksAndInvalidate()
+            
+        } catch let err {
+            print(err)
+            completion(false)
+        }
+    }
+    
+    //PUT a med
+    func updateMed(_ medId: String, patientId:String, name: String, disc: String, completion: @escaping callback) {
+        let json : [String: Any] = ["name": name, "disc": disc]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let sessionConfig = URLSessionConfiguration.default
+            let session =  URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let url = URL(string: "\(GET_PT_MEDS)/\(medId)") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            guard let token = AuthService.instance.authToken else { return }
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+                if (error == nil) {
+                    //success
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    if statusCode != 200 {
+                        completion(false)
+                        return
+                    } else {
+                        completion(true)
+                        self.getPatientMeds(patientId)
+                    }
+                } else {
+                    //failure
+                    print("URL session failed: \(error!.localizedDescription)")
+                    completion(false)
+                }
+            })
+            task.resume()
+            session.finishTasksAndInvalidate()
+        } catch let err {
+            print(err)
+            completion(false)
+        }
+    }
+    
+    //DELETE a med
+    func deleteMed(_ medId: String) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let url = URL(string: "\(GET_PT_MEDS)/\(medId)") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        guard let token = AuthService.instance.authToken else { return }
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if (error == nil) {
+                //success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("status code \(statusCode)")
+
+            } else {
+                // failed to delete
+                print("\(error!.localizedDescription)")
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    
+    
+    
+    
+    
 }

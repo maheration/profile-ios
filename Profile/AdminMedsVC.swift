@@ -12,7 +12,6 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
 
     //Outlets
     @IBOutlet weak var infoTxt: UILabel!
-    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var updateLbl: UILabel!
     
@@ -26,7 +25,6 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         infoTxt.isHidden = false
-        addBtn.isHidden = false
         updateLbl.isHidden = true
         if let ptId = patientId {
             dataService.getPatientMeds(ptId)
@@ -45,6 +43,7 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
     }
 
     @IBAction func addBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "showAddMedVC", sender: self)
     }
     
     
@@ -65,11 +64,9 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         OperationQueue.main.addOperation {
             self.tableView.reloadData()
             if self.dataService.meds.count > 0 {
-                self.addBtn.isHidden = true
                 self.infoTxt.isHidden = true
                 self.updateLbl.isHidden = false
             } else {
-                self.addBtn.isHidden = false
                 self.infoTxt.isHidden = false
                 self.updateLbl.isHidden = true
             }
@@ -93,6 +90,24 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+
+            let medId = dataService.meds[indexPath.row].id
+            dataService.meds.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            dataService.deleteMed(medId)
+            
+            if self.dataService.meds.count > 0 {
+                self.infoTxt.isHidden = true
+                self.updateLbl.isHidden = false
+            } else {
+                self.infoTxt.isHidden = false
+                self.updateLbl.isHidden = true
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAdminMedsDetailVC" {
             var med : Medication?
@@ -100,6 +115,15 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
             med = dataService.meds[indexPath.row]
             let destinVC = segue.destination as! AdminMedsDetailVC
             destinVC.transMeds = med
+            destinVC.selectedRow = indexPath.row
+            destinVC.patientId = self.patientId
+        }
+        
+        if segue.identifier == "showAddMedVC" {
+            let destinVC = segue.destination as! AddMedVC
+            if let id = patientId {
+                destinVC.patientId = id
+            }
         }
     }
     

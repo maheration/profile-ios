@@ -116,6 +116,6 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     }
     
     func medsLoaded() {
-        
+        //nothing
     }
 }
