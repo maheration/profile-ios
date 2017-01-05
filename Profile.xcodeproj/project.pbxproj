@@ -34,6 +34,7 @@
 		48DDF2F51E1375EA003A1C89 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */; };
 		48DFE19E1E1748700098AF36 /* MaterialTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFE19D1E1748700098AF36 /* MaterialTextView.swift */; };
 		48E043431E135B3F003237ED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E043421E135B3F003237ED /* AuthService.swift */; };
+		48E7E0D01E1EA731005772E6 /* PatientMedsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E7E0CF1E1EA731005772E6 /* PatientMedsVC.swift */; };
 		48E9365F1E143A7600726A8E /* AdminMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9365E1E143A7600726A8E /* AdminMainVC.swift */; };
 		48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E936601E143A8400726A8E /* PatientMainVC.swift */; };
 		48F1737D1E1C492B0096F1C2 /* MedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F1737C1E1C492B0096F1C2 /* MedsCell.swift */; };
@@ -84,6 +85,7 @@
 		48DDF2F41E1375EA003A1C89 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		48DFE19D1E1748700098AF36 /* MaterialTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextView.swift; sourceTree = "<group>"; };
 		48E043421E135B3F003237ED /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		48E7E0CF1E1EA731005772E6 /* PatientMedsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMedsVC.swift; sourceTree = "<group>"; };
 		48E9365E1E143A7600726A8E /* AdminMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminMainVC.swift; sourceTree = "<group>"; };
 		48E936601E143A8400726A8E /* PatientMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMainVC.swift; sourceTree = "<group>"; };
 		48F1737C1E1C492B0096F1C2 /* MedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsCell.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				48F1737E1E1C4E360096F1C2 /* AdminMedsDetailVC.swift */,
 				48D9AA331E1D5A2100F2C0BB /* AddMedVC.swift */,
 				48BED37B1E1D6CD100EFF7EF /* EditMedVC.swift */,
+				48E7E0CF1E1EA731005772E6 /* PatientMedsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				48B653691E16A29F00EB2327 /* AdminPatientViewVC.swift in Sources */,
 				48F9C6C21E15A57400392CE6 /* Patient.swift in Sources */,
 				48E936611E143A8400726A8E /* PatientMainVC.swift in Sources */,
+				48E7E0D01E1EA731005772E6 /* PatientMedsVC.swift in Sources */,
 				480F84641E1583F300E7596E /* PatientCell.swift in Sources */,
 				48E043431E135B3F003237ED /* AuthService.swift in Sources */,
 				48C7470E1E136C280096682F /* DataService.swift in Sources */,

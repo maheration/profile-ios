@@ -176,7 +176,7 @@
                         <outlet property="emailTxtFld" destination="cy9-ln-ea6" id="Erv-31-Dir"/>
                         <outlet property="passwordTxtFld" destination="WZP-hs-CYb" id="x4K-4p-B2d"/>
                         <segue destination="hSu-8J-Wzp" kind="show" identifier="showAdminVC" id="bB7-hs-O5A"/>
-                        <segue destination="QdH-G5-nSo" kind="show" identifier="showPatientVC" id="jYL-KG-X3l"/>
+                        <segue destination="l7W-hP-PQv" kind="show" identifier="showPatientVC" id="jYL-KG-X3l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFN-6W-gOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,14 +383,14 @@
                         <outlet property="lastNameTxtFld" destination="mgx-GY-9jw" id="whS-0T-YZA"/>
                         <outlet property="passwordTxtFld" destination="213-60-zGx" id="41D-0G-kX7"/>
                         <segue destination="hSu-8J-Wzp" kind="show" identifier="showAdminMainVC" id="qBC-1n-5an"/>
-                        <segue destination="QdH-G5-nSo" kind="show" identifier="showPatientMainVC" id="2Ci-SC-zsW"/>
+                        <segue destination="l7W-hP-PQv" kind="show" identifier="showPatientMainVC" id="2Ci-SC-zsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDr-LM-f3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2698.4000000000001" y="-666.11694152923542"/>
         </scene>
-        <!--Patient MainVC-->
+        <!--Plan-->
         <scene sceneID="BkW-Di-B8W">
             <objects>
                 <viewController id="QdH-G5-nSo" customClass="PatientMainVC" customModule="Profile" customModuleProvider="target" sceneMemberID="viewController">
@@ -401,12 +401,182 @@
                     <view key="view" contentMode="scaleToFill" id="Gpp-HM-Hco">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-9s-x82">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lupus Nephritis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4z-Nk-XsR" userLabel="dxLbl">
+                                <rect key="frame" x="0.0" y="135" width="375" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="P2c-f8-eQN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNC-jF-PyO" userLabel="dxBG">
+                                <rect key="frame" x="0.0" y="95" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diagnosis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yp-Fj-clN" userLabel="dxLblTitle">
+                                        <rect key="frame" x="148" y="8" width="78" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2pH-sJ-fs4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ps-xM-6yp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LEp-Xn-paV">
+                                        <rect key="frame" x="165" y="22" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Eif-tt-dcT"/>
+                                            <constraint firstAttribute="width" constant="45" id="vqj-Xn-2Wz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.34999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="LEp-Xn-paV" secondAttribute="bottom" constant="8" id="0Da-gQ-OpS"/>
+                                    <constraint firstItem="LEp-Xn-paV" firstAttribute="centerX" secondItem="0ps-xM-6yp" secondAttribute="centerX" id="GYo-ud-DeB"/>
+                                    <constraint firstAttribute="height" constant="75" id="quQ-M4-bRV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lN-cp-P64" userLabel="planBG">
+                                <rect key="frame" x="0.0" y="195" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dU-cS-WNC" userLabel="PlanTitle">
+                                        <rect key="frame" x="170" y="8" width="35" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rI7-pd-ij1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be on the an injection called Cyclophosphomide every 2eeks for 6 weeks." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXO-ZM-L2z" userLabel="planLbl">
+                                <rect key="frame" x="0.0" y="235" width="375" height="220"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="ZbX-4d-iQS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-08-E9U" userLabel="labsBG">
+                                <rect key="frame" x="0.0" y="470" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-4R-F4D" userLabel="LabsTitle">
+                                        <rect key="frame" x="169" y="8" width="37" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XiA-PD-e8w"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every 2 weeks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUH-Pk-8hF" userLabel="labsLbl">
+                                <rect key="frame" x="0.0" y="510" width="375" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="PlB-tO-lUX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your coordinator didn't add a plan yet.. Come back later :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u71-0U-M38">
+                                <rect key="frame" x="16" y="240" width="343" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="AZf-0l-y4d"/>
+                                    <constraint firstAttribute="height" constant="187" id="OwA-oL-Cg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pUH-Pk-8hF" secondAttribute="trailing" id="0rs-R2-L5B"/>
+                            <constraint firstAttribute="trailing" secondItem="JNC-jF-PyO" secondAttribute="trailing" id="1VI-Ox-QZL"/>
+                            <constraint firstAttribute="trailing" secondItem="HYQ-9s-x82" secondAttribute="trailing" id="1gi-Zp-Ay8"/>
+                            <constraint firstAttribute="trailing" secondItem="n4z-Nk-XsR" secondAttribute="trailing" id="3RW-4x-l5o"/>
+                            <constraint firstItem="WJn-08-E9U" firstAttribute="top" secondItem="uXO-ZM-L2z" secondAttribute="bottom" constant="15" id="4w6-tG-3a1"/>
+                            <constraint firstAttribute="trailing" secondItem="WJn-08-E9U" secondAttribute="trailing" id="5FZ-2L-nVT"/>
+                            <constraint firstAttribute="trailing" secondItem="1lN-cp-P64" secondAttribute="trailing" id="5bz-DN-NaV"/>
+                            <constraint firstItem="uXO-ZM-L2z" firstAttribute="top" secondItem="1lN-cp-P64" secondAttribute="bottom" id="CtC-cs-b3E"/>
+                            <constraint firstItem="n4z-Nk-XsR" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="Dil-hc-zOH"/>
+                            <constraint firstItem="1lN-cp-P64" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="IRM-nt-lBc"/>
+                            <constraint firstItem="JNC-jF-PyO" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="IUj-SX-y0g"/>
+                            <constraint firstItem="0ps-xM-6yp" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="M85-Oc-3Lf"/>
+                            <constraint firstItem="n4z-Nk-XsR" firstAttribute="top" secondItem="JNC-jF-PyO" secondAttribute="bottom" id="O0Q-Zl-iWc"/>
+                            <constraint firstAttribute="bottom" secondItem="HYQ-9s-x82" secondAttribute="bottom" id="P7b-4q-cTw"/>
+                            <constraint firstItem="u71-0U-M38" firstAttribute="centerX" secondItem="Gpp-HM-Hco" secondAttribute="centerX" id="Q9a-o6-Pol"/>
+                            <constraint firstItem="u71-0U-M38" firstAttribute="centerY" secondItem="Gpp-HM-Hco" secondAttribute="centerY" id="YM3-bm-Jos"/>
+                            <constraint firstItem="1lN-cp-P64" firstAttribute="top" secondItem="n4z-Nk-XsR" secondAttribute="bottom" constant="15" id="be5-3g-5S3"/>
+                            <constraint firstAttribute="trailing" secondItem="uXO-ZM-L2z" secondAttribute="trailing" id="bsv-Tc-Xg8"/>
+                            <constraint firstItem="0ps-xM-6yp" firstAttribute="top" secondItem="Gpp-HM-Hco" secondAttribute="top" id="gPO-rN-QEa"/>
+                            <constraint firstItem="WJn-08-E9U" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="gbF-WO-z0F"/>
+                            <constraint firstItem="JNC-jF-PyO" firstAttribute="top" secondItem="0ps-xM-6yp" secondAttribute="bottom" constant="20" id="iZY-gE-hup"/>
+                            <constraint firstItem="uXO-ZM-L2z" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="id8-u5-qd9"/>
+                            <constraint firstItem="HYQ-9s-x82" firstAttribute="top" secondItem="Gpp-HM-Hco" secondAttribute="top" id="orj-P0-F1q"/>
+                            <constraint firstItem="pUH-Pk-8hF" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="tYi-rh-Ihr"/>
+                            <constraint firstItem="pUH-Pk-8hF" firstAttribute="top" secondItem="WJn-08-E9U" secondAttribute="bottom" id="uVa-Ud-ogA"/>
+                            <constraint firstAttribute="trailing" secondItem="0ps-xM-6yp" secondAttribute="trailing" id="yXB-ct-G9l"/>
+                            <constraint firstItem="HYQ-9s-x82" firstAttribute="leading" secondItem="Gpp-HM-Hco" secondAttribute="leading" id="zC0-GJ-68c"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Plan" image="planLogoEmpty" selectedImage="planLogoFilled" id="7ID-bq-SpZ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="dxBg" destination="JNC-jF-PyO" id="l8c-in-PFf"/>
+                        <outlet property="dxLbl" destination="n4z-Nk-XsR" id="ddv-vt-XQh"/>
+                        <outlet property="infoLbl" destination="u71-0U-M38" id="dN0-G5-gX2"/>
+                        <outlet property="labsBg" destination="WJn-08-E9U" id="H4T-xy-7Hp"/>
+                        <outlet property="labsLbl" destination="pUH-Pk-8hF" id="tXS-In-def"/>
+                        <outlet property="planBg" destination="1lN-cp-P64" id="DyC-hG-7BA"/>
+                        <outlet property="planLbl" destination="uXO-ZM-L2z" id="qZe-TG-AC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9c-Hn-u46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3750" y="206"/>
+            <point key="canvasLocation" x="4688.8000000000002" y="205.54722638680661"/>
+        </scene>
+        <!--Medications-->
+        <scene sceneID="VzN-ut-zXj">
+            <objects>
+                <viewController id="phE-e0-5ZO" customClass="PatientMedsVC" customModule="Profile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yrm-yq-KJg"/>
+                        <viewControllerLayoutGuide type="bottom" id="4xe-Ma-2Ni"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g4O-br-nXb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Medications" image="medsLogoEmpty" selectedImage="medsLogoFilled" id="g9u-lQ-VMm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcm-Fy-e3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4439" y="963"/>
         </scene>
         <!--Admin MainVC-->
         <scene sceneID="YXu-7t-xvR">
@@ -1250,21 +1420,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last update on Jan 2, 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGv-6u-Eqg">
-                                <rect key="frame" x="16" y="95" width="343" height="21"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DVq-DX-3Wn" firstAttribute="top" secondItem="JQH-4h-Isw" secondAttribute="top" id="AyK-AB-WVm"/>
                             <constraint firstItem="DVq-DX-3Wn" firstAttribute="leading" secondItem="JQH-4h-Isw" secondAttribute="leading" id="GD5-3W-wY6"/>
                             <constraint firstItem="O0Z-nv-miW" firstAttribute="top" secondItem="JQH-4h-Isw" secondAttribute="top" id="LSF-Im-4vW"/>
-                            <constraint firstItem="YGv-6u-Eqg" firstAttribute="top" secondItem="DVq-DX-3Wn" secondAttribute="bottom" constant="20" id="P2j-Ze-2Sx"/>
-                            <constraint firstItem="YGv-6u-Eqg" firstAttribute="leading" secondItem="JQH-4h-Isw" secondAttribute="leadingMargin" id="PmE-xA-0yb"/>
-                            <constraint firstItem="YGv-6u-Eqg" firstAttribute="trailing" secondItem="JQH-4h-Isw" secondAttribute="trailingMargin" id="cx2-IW-w5m"/>
                             <constraint firstItem="vAa-c5-1vX" firstAttribute="top" secondItem="2Ge-MI-94F" secondAttribute="bottom" constant="8" id="f0M-YE-kgl"/>
                             <constraint firstItem="klK-4B-BTb" firstAttribute="centerX" secondItem="JQH-4h-Isw" secondAttribute="centerX" id="i8u-9l-cvf"/>
                             <constraint firstAttribute="trailing" secondItem="jSH-Zs-sU2" secondAttribute="trailing" id="jfC-C8-DFy"/>
@@ -1281,7 +1442,6 @@
                     <connections>
                         <outlet property="infoTxt" destination="klK-4B-BTb" id="qNj-Jr-yCL"/>
                         <outlet property="tableView" destination="jSH-Zs-sU2" id="7cD-fm-YYd"/>
-                        <outlet property="updateLbl" destination="YGv-6u-Eqg" id="fDc-pK-iya"/>
                         <segue destination="pTd-aS-iLM" kind="show" identifier="showAddMedVC" id="hhf-zo-Fs5"/>
                     </connections>
                 </viewController>
@@ -1412,7 +1572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXJ-eb-rlh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5465" y="275"/>
+            <point key="canvasLocation" x="6404" y="274.81259370314842"/>
         </scene>
         <!--Admin Meds DetailVC-->
         <scene sceneID="TsA-rK-nCm">
@@ -1451,7 +1611,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exw-Ly-ONp">
-                                        <rect key="frame" x="305" y="18.5" width="62" height="38"/>
+                                        <rect key="frame" x="305" y="19" width="62" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="ceW-JK-xg4"/>
                                             <constraint firstAttribute="width" constant="62" id="sGV-tv-xOz"/>
@@ -1478,8 +1638,24 @@
                                     <constraint firstItem="SeI-VK-oZB" firstAttribute="leading" secondItem="ZKt-f4-yjk" secondAttribute="leading" constant="20" id="ygo-Xo-DbU"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be on the an injection called Cyclophosphomide every 2eeks for 6 weeks." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLP-PH-KkN" userLabel="planLbl">
+                                <rect key="frame" x="0.0" y="171" width="375" height="300"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="60o-SL-Fcm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated on Thu Jan 5, 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYS-pv-LoX">
+                                <rect key="frame" x="16" y="95" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-en-7xc" userLabel="planBG">
-                                <rect key="frame" x="0.0" y="100" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="131" width="375" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwy-YN-7Qp" userLabel="PlanTitle">
                                         <rect key="frame" x="170" y="8" width="35" height="24"/>
@@ -1495,26 +1671,19 @@
                                     <constraint firstAttribute="height" constant="40" id="TP0-Bm-q7e"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be on the an injection called Cyclophosphomide every 2eeks for 6 weeks." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLP-PH-KkN" userLabel="planLbl">
-                                <rect key="frame" x="0.0" y="140" width="375" height="300"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="60o-SL-Fcm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HTT-K4-ZgF" firstAttribute="top" secondItem="1qT-nq-5uN" secondAttribute="top" id="054-Ge-QT8"/>
                             <constraint firstItem="BLP-PH-KkN" firstAttribute="top" secondItem="yZY-en-7xc" secondAttribute="bottom" id="1ZL-dc-GB1"/>
-                            <constraint firstItem="yZY-en-7xc" firstAttribute="top" secondItem="ZKt-f4-yjk" secondAttribute="bottom" constant="25" id="7UK-F1-gyO"/>
+                            <constraint firstItem="wYS-pv-LoX" firstAttribute="leading" secondItem="1qT-nq-5uN" secondAttribute="leadingMargin" id="BvO-D5-2u7"/>
                             <constraint firstAttribute="trailing" secondItem="BLP-PH-KkN" secondAttribute="trailing" id="Byk-Kr-HtQ"/>
                             <constraint firstAttribute="trailing" secondItem="HTT-K4-ZgF" secondAttribute="trailing" id="GjY-o8-Jzm"/>
+                            <constraint firstItem="wYS-pv-LoX" firstAttribute="top" secondItem="ZKt-f4-yjk" secondAttribute="bottom" constant="20" id="ImL-z5-Y0e"/>
+                            <constraint firstItem="wYS-pv-LoX" firstAttribute="trailing" secondItem="1qT-nq-5uN" secondAttribute="trailingMargin" id="Ku1-eJ-hxn"/>
                             <constraint firstItem="ZKt-f4-yjk" firstAttribute="top" secondItem="1qT-nq-5uN" secondAttribute="top" id="LLX-nC-QpQ"/>
                             <constraint firstItem="PUP-h8-754" firstAttribute="top" secondItem="HTT-K4-ZgF" secondAttribute="bottom" id="PNR-2b-rS3"/>
+                            <constraint firstItem="yZY-en-7xc" firstAttribute="top" secondItem="wYS-pv-LoX" secondAttribute="bottom" constant="15" id="ZTv-GM-3mC"/>
                             <constraint firstAttribute="trailing" secondItem="yZY-en-7xc" secondAttribute="trailing" id="ddE-bx-GkU"/>
                             <constraint firstItem="yZY-en-7xc" firstAttribute="leading" secondItem="1qT-nq-5uN" secondAttribute="leading" id="dnT-QK-Y7b"/>
                             <constraint firstItem="ZKt-f4-yjk" firstAttribute="leading" secondItem="1qT-nq-5uN" secondAttribute="leading" id="hnB-l8-wcc"/>
@@ -1526,6 +1695,7 @@
                     <connections>
                         <outlet property="medsDiscLbl" destination="BLP-PH-KkN" id="lk7-RS-cbJ"/>
                         <outlet property="medsTitleLbl" destination="Iwy-YN-7Qp" id="Fnp-Ys-hf7"/>
+                        <outlet property="updatedLbl" destination="wYS-pv-LoX" id="KCv-7o-SPX"/>
                         <segue destination="fDv-pZ-DTt" kind="show" identifier="showEditMedVC" id="CQe-WP-F6g"/>
                     </connections>
                 </viewController>
@@ -1823,6 +1993,26 @@
             </objects>
             <point key="canvasLocation" x="6902" y="-448"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="h9D-dR-J5h">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="l7W-hP-PQv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="M5Q-yg-Tr8">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="QdH-G5-nSo" kind="relationship" relationship="viewControllers" id="9Of-zq-csb"/>
+                        <segue destination="phE-e0-5ZO" kind="relationship" relationship="viewControllers" id="lRi-6u-s9V"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcE-R1-mdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3749.5999999999999" y="205.54722638680661"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BG" width="375" height="667"/>
@@ -1830,13 +2020,17 @@
         <image name="addBtn" width="86" height="84"/>
         <image name="backBtn" width="19" height="32"/>
         <image name="medsLogo" width="28" height="24"/>
+        <image name="medsLogoEmpty" width="30" height="30"/>
+        <image name="medsLogoFilled" width="30" height="30"/>
         <image name="medsLogoGray" width="28" height="24"/>
         <image name="planLogo" width="52" height="62"/>
+        <image name="planLogoEmpty" width="30" height="32"/>
+        <image name="planLogoFilled" width="30" height="30"/>
         <image name="splashLogo" width="142" height="173"/>
         <image name="user copy 2" width="26" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bB7-hs-O5A"/>
-        <segue reference="jYL-KG-X3l"/>
+        <segue reference="2Ci-SC-zsW"/>
+        <segue reference="qBC-1n-5an"/>
     </inferredMetricsTieBreakers>
 </document>

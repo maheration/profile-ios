@@ -24,7 +24,6 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var lblTxt : UILabel!
     
-    var isPlanEmpty = true
     let dataService = DataService.instance
     var patient : Patient?
     

@@ -13,7 +13,6 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
     //Outlets
     @IBOutlet weak var infoTxt: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var updateLbl: UILabel!
     
     //vars
     var dataService = DataService.instance
@@ -25,7 +24,6 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         infoTxt.isHidden = false
-        updateLbl.isHidden = true
         if let ptId = patientId {
             dataService.getPatientMeds(ptId)
         }
@@ -65,10 +63,8 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
             self.tableView.reloadData()
             if self.dataService.meds.count > 0 {
                 self.infoTxt.isHidden = true
-                self.updateLbl.isHidden = false
             } else {
                 self.infoTxt.isHidden = false
-                self.updateLbl.isHidden = true
             }
         }
     }
@@ -100,10 +96,8 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
             
             if self.dataService.meds.count > 0 {
                 self.infoTxt.isHidden = true
-                self.updateLbl.isHidden = false
             } else {
                 self.infoTxt.isHidden = false
-                self.updateLbl.isHidden = true
             }
         }
     }

@@ -42,6 +42,8 @@ let DEFAULTS_EMAIL = "email"
 //Auth Token
 let DEFAULTS_TOKEN = "authToken"
 
+let USER_ID = "id"
+
 let DEFAULT_ADMIN = "isAdmin"
 
 

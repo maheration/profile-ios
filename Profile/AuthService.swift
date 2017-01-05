@@ -49,6 +49,15 @@ class AuthService {
         }
     }
     
+    var id : String? {
+        get {
+            return defaults.value(forKey: USER_ID) as? String
+        }
+        set {
+            defaults.set(newValue, forKey: USER_ID)
+        }
+    }
+    
     var isAdmin : Bool? {
         get {
             return defaults.value(forKey: DEFAULT_ADMIN) as? Bool
@@ -148,10 +157,12 @@ class AuthService {
                                     if let token = result?["token"] as? String {
                                         //successfully authinticated and have a token
                                         self.isAdmin = result!["isAdmin"] as? Bool
+                                        self.id = result!["id"] as? String
                                         self.email = email
                                         self.authToken = token
                                         self.isRegistered = true
                                         self.isAuthenticated = true
+                                        print(self.id!)
                                         completion(true)
                                     } else {
                                         completion(false)

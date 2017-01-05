@@ -12,6 +12,7 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
     //outlets
     @IBOutlet weak var medsTitleLbl: UILabel!
     @IBOutlet weak var medsDiscLbl: UILabel!
+    @IBOutlet weak var updatedLbl: UILabel!
     //vars
     var transMeds : Medication?
     var selectedRow : Int?
@@ -24,6 +25,7 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
         if let med = transMeds {
             medsTitleLbl.text = med.name
             medsDiscLbl.text = med.disc
+            updatedLbl.text = "Last updated on \(med.updatedDate)"
         }
 
     }

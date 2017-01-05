@@ -12,6 +12,7 @@ class Medication {
     var name : String = ""
     var disc : String = ""
     var id = ""
+    var updatedDate = ""
     
     static func parseMedicationJSONData(data: Data) -> [Medication] {
         var medsArr = [Medication]()
@@ -25,6 +26,7 @@ class Medication {
                     newMed.name = med["name"] as! String
                     newMed.disc = med["disc"] as! String
                     newMed.id = med["_id"] as! String
+                    newMed.updatedDate = med["updatedDate"] as! String
                     
                     medsArr.append(newMed)
                 }
