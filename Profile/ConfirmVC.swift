@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmVC: UIViewController, DataServiceDelegate {
+class ConfirmVC: UIViewController, DataServiceDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var codeTxtFld: MaterialTxtFld!
     var dataService = DataService.instance
@@ -17,8 +17,28 @@ class ConfirmVC: UIViewController, DataServiceDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dataService.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(ConfirmVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ConfirmVC .keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ConfirmVC.dismiss(notification:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
+    
+    func dismiss(notification: NSNotification) {
+        view.endEditing(true)
     }
     
     func patientsLoaded() {

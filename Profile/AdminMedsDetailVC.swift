@@ -27,7 +27,10 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
             medsDiscLbl.text = med.disc
             updatedLbl.text = "Last updated on \(med.updatedDate)"
         }
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +71,7 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
             if let row = self.selectedRow {
                 self.medsTitleLbl.text = self.dataService.meds[row].name
                 self.medsDiscLbl.text = self.dataService.meds[row].disc
+                self.updatedLbl.text = "Last updated on\(self.dataService.meds[row].updatedDate)"
             }
         }
         

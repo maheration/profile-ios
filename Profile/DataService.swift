@@ -209,7 +209,7 @@ class DataService {
             if (error == nil) {
                 //success
                 let statusCode = (response as! HTTPURLResponse).statusCode
-                print("Status code ya hemar \(statusCode)")
+                print("Status code ya getMed \(statusCode)")
                 if let dataa = data {
                     self.meds = Medication.parseMedicationJSONData(data: dataa)
                     self.delegate?.medsLoaded()

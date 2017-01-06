@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddMedVC: UIViewController {
+class AddMedVC: UIViewController, UITextFieldDelegate {
     
     //outlet
     @IBOutlet weak var medNameTxtFld: MaterialTxtFld!
@@ -19,7 +19,28 @@ class AddMedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(AddMedVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddMedVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMedVC.dismiss(notification:)))
+        view.addGestureRecognizer(tap)
 
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
+    
+    func dismiss(notification: NSNotification) {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

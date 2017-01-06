@@ -82,4 +82,10 @@ class PatientMainVC: UIViewController, DataServiceDelegate {
         //nil
     }
 
+    @IBAction func logoutBtnPressed(_ sender: UIButton) {
+        OperationQueue.main.addOperation {
+            AuthService.instance.logout()
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

@@ -194,5 +194,28 @@ class AuthService {
         }
     }
     
+    //Logout
+    func logout() {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        guard let url = URL(string: GET_LOGOUT_ACCT) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        guard let token = self.authToken else { return }
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if (error == nil) {
+                //success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("Logged out and code is \(statusCode)")
+            } else {
+                //failed
+                print("failed: \(error!.localizedDescription)")
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
     
 }

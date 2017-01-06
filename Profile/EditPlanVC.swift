@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditPlanVC: UIViewController {
+class EditPlanVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var dxTxtFld: MaterialTxtFld!
     @IBOutlet weak var labsTxtFld: MaterialTxtFld!
@@ -23,11 +23,31 @@ class EditPlanVC: UIViewController {
         dxTxtFld.text = dataService.plans[0].dx
         labsTxtFld.text = dataService.plans[0].labs
         planTxtFld.text = dataService.plans[0].plan
+        NotificationCenter.default.addObserver(self, selector: #selector(EditPlanVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditPlanVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EditPlanVC.dismiss(notification:)))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
+    
+    func dismiss(notification: NSNotification) {
+        view.endEditing(true)
     }
     
     @IBAction func updateBtnPressed(_ sender: UIButton) {

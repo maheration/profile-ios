@@ -27,7 +27,21 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         if let ptId = patientId {
             dataService.getPatientMeds(ptId)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Maher")
+        tableView.reloadData()
 
+    }
+    
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+        print("did appear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,12 +74,13 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
     
     func medsLoaded() {
         OperationQueue.main.addOperation {
-            self.tableView.reloadData()
+            print("Meds Loaded")
             if self.dataService.meds.count > 0 {
                 self.infoTxt.isHidden = true
             } else {
                 self.infoTxt.isHidden = false
             }
+            self.tableView.reloadData()
         }
     }
     

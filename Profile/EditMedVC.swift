@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditMedVC: UIViewController {
+class EditMedVC: UIViewController, UITextFieldDelegate {
 
     //outlets
     @IBOutlet weak var discMedTxtFld: MaterialTextView!
@@ -25,6 +25,11 @@ class EditMedVC: UIViewController {
             med = DataService.instance.meds[row]
             nameMedTxtFld.text = med.name
             discMedTxtFld.text = med.disc
+            NotificationCenter.default.addObserver(self, selector: #selector(EditMedVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(EditMedVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(EditMedVC.dismiss(notification:)))
+            view.addGestureRecognizer(tap)
         }
     }
 
@@ -32,6 +37,21 @@ class EditMedVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
+    
+    func dismiss(notification: NSNotification) {
+        view.endEditing(true)
+    }
 
     @IBAction func backBtnPressed(_ sender: Any) {
         dismissVC()

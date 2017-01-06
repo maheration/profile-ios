@@ -22,6 +22,9 @@ let POST_REGISTER_ACCT = "\(BASE_API_URL)/account/register"
 //Login Url
 let POST_LOGIN_ACCT = "\(BASE_API_URL)/account/login"
 
+//logout url
+let GET_LOGOUT_ACCT = "\(BASE_API_URL)/account/logout"
+
 //get all patients url
 let GET_ALL_PTS = "\(BASE_API_URL)/account/"
 
