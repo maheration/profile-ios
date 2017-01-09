@@ -13,6 +13,7 @@
 		482C97EC1E1082BD0048756D /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97EB1E1082BD0048756D /* MaterialButton.swift */; };
 		482C97EE1E10845B0048756D /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97ED1E10845B0048756D /* ConfirmVC.swift */; };
 		482C97F01E10852A0048756D /* MaterialTxtFld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C97EF1E10852A0048756D /* MaterialTxtFld.swift */; };
+		482CAA221E241A3800CCED44 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CAA211E241A3800CCED44 /* Reachability.swift */; };
 		488C78891E11F236009C5549 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C78881E11F236009C5549 /* Medication.swift */; };
 		488F218B1E14A3CC00084B5D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F218A1E14A3CC00084B5D /* LoginVC.swift */; };
 		48A3EC561DFCCD7900683867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3EC551DFCCD7900683867 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		482C97EB1E1082BD0048756D /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		482C97ED1E10845B0048756D /* ConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
 		482C97EF1E10852A0048756D /* MaterialTxtFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTxtFld.swift; sourceTree = "<group>"; };
+		482CAA211E241A3800CCED44 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		488C78881E11F236009C5549 /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		488F218A1E14A3CC00084B5D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		48A3EC521DFCCD7900683867 /* Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			children = (
 				48E043421E135B3F003237ED /* AuthService.swift */,
 				48C7470D1E136C280096682F /* DataService.swift */,
+				482CAA211E241A3800CCED44 /* Reachability.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				480F84641E1583F300E7596E /* PatientCell.swift in Sources */,
 				48E043431E135B3F003237ED /* AuthService.swift in Sources */,
 				48C7470E1E136C280096682F /* DataService.swift in Sources */,
+				482CAA221E241A3800CCED44 /* Reachability.swift in Sources */,
 				488F218B1E14A3CC00084B5D /* LoginVC.swift in Sources */,
 				48B6536B1E16AACB00EB2327 /* MaterialViewRoundedCorner.swift in Sources */,
 				48F9C6C01E15A27200392CE6 /* MaterialView.swift in Sources */,

@@ -12,8 +12,9 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if !connectedToNetwork() {
+            showAlert(with: "No Internet Connection Found", message: "Please make sure that you are connected to the internet :)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,4 +30,11 @@ class MainVC: UIViewController {
         performSegue(withIdentifier: "showLoginVC", sender: self)
     }
     
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

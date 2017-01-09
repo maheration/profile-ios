@@ -17,6 +17,9 @@ class ConfirmVC: UIViewController, DataServiceDelegate, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !connectedToNetwork() {
+            showAlert(with: "No Internet Connection Found", message: "Please make sure that you are connected to the internet :)")
+        }
         dataService.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(ConfirmVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ConfirmVC .keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -99,6 +102,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate, UITextFieldDelegate {
     }
     
     @IBAction func codeSubmit(_ sender: UIButton) {
+        
         dataService.getAllCodes()
         print(dataService.codes.count)
     }
