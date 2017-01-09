@@ -32,4 +32,5 @@ func connectedToNetwork() -> Bool {
     let needsConnection = flags.contains(.connectionRequired)
     
     return (isReachable && !needsConnection)
+    
 }
