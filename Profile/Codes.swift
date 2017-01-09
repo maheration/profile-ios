@@ -12,7 +12,7 @@ class Codes {
     var id = ""
     var code = ""
     var role = ""
-    var taken = ""
+    var taken = false
     
     static func parseCodesJSONData(data: Data) -> [Codes] {
         var codesArr = [Codes]()
@@ -25,7 +25,7 @@ class Codes {
                     newCode.id = code["_id"] as! String
                     newCode.code = code["code"] as! String
                     newCode.role = code["role"] as! String
-                    newCode.taken = code["taken"] as! String
+                    newCode.taken = code["taken"] as! Bool
                     
                     codesArr.append(newCode)
                 }

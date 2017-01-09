@@ -51,6 +51,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
         guard let emailTxt = emailTxtFld.text, emailTxtFld.text != "", let firstName = firstNameTxtFld.text, firstNameTxtFld.text != "", let lastName = lastNameTxtFld.text, lastNameTxtFld.text != "", let password = passwordTxtFld.text, passwordTxtFld.text != "" else {
             print("Show arror msg")
+            showAlert(with: "ERROR", message: "All fields are required!")
             return
         }
         
@@ -71,10 +72,12 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
                             }
                         }
                     } else {
+                        self.showAlert(with: "ERROR", message: "Please contact us for assistance!")
                         print("Error")
                     }
                 })
             } else {
+                self.showAlert(with: "ERROR", message: "Please contact us for assistance!")
                 print("error")
             }
             
@@ -84,6 +87,14 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         OperationQueue.main.addOperation {
             let _ = self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 
 }

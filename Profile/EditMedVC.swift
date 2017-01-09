@@ -61,6 +61,7 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
         guard let medName = nameMedTxtFld.text, nameMedTxtFld.text != "", let medDisc = discMedTxtFld.text, discMedTxtFld.text != "" else {
             //show alert 
             print("All fields are required")
+            showAlert(with: "Error", message: "Please fill all fields and try again :)")
             return
         }
         
@@ -71,6 +72,7 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
                 self.dismissVC()
             } else {
                 print("failed update")
+                self.showAlert(with: "ERROR", message: "Medication was not updated! Please try again")
                 //show alert
             }
         }
@@ -80,5 +82,13 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
         OperationQueue.main.addOperation {
             _ = self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

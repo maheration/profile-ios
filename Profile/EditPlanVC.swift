@@ -54,6 +54,7 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
         guard let dx = dxTxtFld.text, dxTxtFld.text != "", let labs = labsTxtFld.text, labsTxtFld.text != "", let plan = planTxtFld.text, planTxtFld.text != "" else {
             // show alert
             print("All fields are required")
+            showAlert(with: "ERROR", message: "All fields are required. Please try again :)")
             return
         }
         guard let patient = transPatient else { return }
@@ -63,6 +64,7 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
                 self.dismissVC()
             } else {
                 // failed
+                self.showAlert(with: "ERROR", message: "An error occured! Plan was not updated. Please try again")
                 print("Failed updating")
             }
         }
@@ -81,6 +83,12 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
 }

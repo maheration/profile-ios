@@ -55,6 +55,7 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
         guard let dx = dxTxtFld.text, dxTxtFld.text != "", let labs = labsFreqTxtFld.text, labsFreqTxtFld.text != "", let plan = planTxtFld.text, planTxtFld.text != "" else {
             // show an alert here
             print("ALL Fields are mandatory")
+            showAlert(with: "ALL Fields are mandatory", message: "Please fill all fields")
             return
         }
         guard let id = patientId else { return }
@@ -67,6 +68,7 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
             } else {
                 print("Was not able to save a new plan")
                 //show alert
+                self.showAlert(with: "Plan was not saved", message: "An error occured! Please try again")
             }
         }
     }
@@ -75,6 +77,14 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
         OperationQueue.main.addOperation {
             _ = self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 
 }

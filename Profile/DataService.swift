@@ -330,7 +330,28 @@ class DataService {
     }
     
     
-    
+    // DELETE a code
+    func deleteCode(_ codeId: String) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let url = URL(string: "\(GET_ALL_CODES)/\(codeId)") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        guard let token = AuthService.instance.authToken else { return }
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if (error == nil) {
+                //success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("Status code \(statusCode)")
+            } else {
+                //failed to delete
+                print("\(error!.localizedDescription)")
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
     
     
     

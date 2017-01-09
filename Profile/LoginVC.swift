@@ -49,6 +49,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         guard let emailTxt = emailTxtFld.text, emailTxtFld.text != "", let password = passwordTxtFld.text, passwordTxtFld.text != "" else {
             print("All fiields are required")
+            showAlert(with: "All fileds are required", message: "Please make sure to fill all fields")
             return
         }
         
@@ -71,11 +72,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         self.performSegue(withIdentifier: "showPatientVC", sender: self)
                     }
                 }
+            } else {
+                OperationQueue.main.addOperation {
+                    self.showAlert(with: "Error", message: "The email or password is wrong. Please try again :)")
+                }
+                
             }
-        
         })
-        
-        
     }
 
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

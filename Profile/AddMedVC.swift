@@ -51,6 +51,7 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
         guard let medName = medNameTxtFld.text, medNameTxtFld.text != "", let medDisc = medDiscTxtFld.text, medDiscTxtFld.text != "" else {
             //show alert
             print("All fields are required")
+            showAlert(with: "All Fields Are Required", message: "Please fill all fields and try again :)")
             return
         }
         if let id = patientId {
@@ -61,6 +62,7 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
                     self.dismissVC()
                 } else {
                     //show alert
+                    self.showAlert(with: "ERROR", message: "Medication was not saved. Please try again")
                     print("Failed to save a new med")
                 }
             })
@@ -79,5 +81,11 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    //Alert func
+    func showAlert(with title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
