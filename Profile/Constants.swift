@@ -48,6 +48,8 @@ let DEFAULTS_TOKEN = "authToken"
 
 let USER_ID = "id"
 
+let DEVICE_TOKEN = "deviceToken"
+
 let DEFAULT_ADMIN = "isAdmin"
 
 

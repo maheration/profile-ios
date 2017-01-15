@@ -18,6 +18,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
     @IBOutlet weak var planBg: UIView!
     @IBOutlet weak var planLbl: UILabel!
     @IBOutlet weak var addPlanBtn: UIButton!
+    @IBOutlet weak var loadingBG: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -37,6 +38,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
         planBg.isHidden = true
         planLbl.isHidden = true
         activityIndicator.startAnimating()
+        loadingBG.isHidden = false
         
         if let transPatient = patient {
             dataService.getPatientPlan(transPatient.id)
@@ -54,6 +56,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
                 self.editBtn.isHidden = false
                 self.lblTxt.isHidden = true
                 self.activityIndicator.stopAnimating()
+                self.loadingBG.isHidden = true
                 self.dxBG.isHidden = false
                 self.dxLbl.isHidden = false
                 self.labsBg.isHidden = false
@@ -68,6 +71,7 @@ class AdminPlanVC: UIViewController, DataServiceDelegate {
             } else {
                 self.editBtn.isHidden = true
                 self.lblTxt.isHidden = false
+                self.loadingBG.isHidden = true
                 self.activityIndicator.stopAnimating()
                 self.dxBG.isHidden = true
                 self.dxLbl.isHidden = true

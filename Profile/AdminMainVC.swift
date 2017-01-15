@@ -10,6 +10,8 @@ import UIKit
 
 class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DataServiceDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var loadingBG: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var dataService = DataService.instance
@@ -18,6 +20,8 @@ class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingBG.isHidden = false
+        activity.startAnimating()
         tableView.delegate = self
         tableView.dataSource = self
         dataService.delegate = self
@@ -59,6 +63,8 @@ class AdminMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     func patientsLoaded() {
         OperationQueue.main.addOperation {
+            self.loadingBG.isHidden = true
+            self.activity.stopAnimating()
             self.tableView.reloadData()
         }
     }

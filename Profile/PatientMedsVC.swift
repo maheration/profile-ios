@@ -13,7 +13,10 @@ class PatientMedsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var infoTxtLbl : UILabel!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var loadingBG: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     //vars
     var dataService = DataService.instance
 
@@ -22,7 +25,8 @@ class PatientMedsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         dataService.delegate = self
-        activity.startAnimating()
+        loadingBG.isHidden = false
+        activityIndicator.startAnimating()
         if let ptId = AuthService.instance.id {
             dataService.getPatientMeds(ptId)
         }
@@ -52,13 +56,14 @@ class PatientMedsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func medsLoaded() {
         OperationQueue.main.addOperation {
-            self.tableView.reloadData()
-            self.activity.stopAnimating()
             if self.dataService.meds.count > 0 {
                 self.infoTxtLbl.isHidden = true
             } else {
                 self.infoTxtLbl.isHidden = false
             }
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.loadingBG.isHidden = true
         }
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MainVC: UIViewController {
 
@@ -14,6 +15,18 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         if !connectedToNetwork() {
             showAlert(with: "No Internet Connection Found", message: "Please make sure that you are connected to the internet :)")
+        }
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            switch settings.soundSetting {
+            case .enabled:
+                print("enabled")
+            case .disabled:
+                self.showAlert(with: "Notification is Not Enabled", message: "Please enable notification in the settings to get notified when your plan or medications get updated :)")
+                print("Please enable notification in the settings to get notified when the plan or you medications get updated.")
+            case .notSupported:
+                print("Big error")
+            }
         }
     }
 

@@ -58,6 +58,16 @@ class AuthService {
         }
     }
     
+    var deviceToken : String? {
+        get {
+            return defaults.value(forKey: DEVICE_TOKEN) as? String
+        }
+        
+        set {
+            defaults.set(newValue, forKey: DEVICE_TOKEN)
+        }
+    }
+    
     var isAdmin : Bool? {
         get {
             return defaults.value(forKey: DEFAULT_ADMIN) as? Bool

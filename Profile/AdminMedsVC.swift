@@ -13,6 +13,8 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
     //Outlets
     @IBOutlet weak var infoTxt: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingBG: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //vars
     var dataService = DataService.instance
@@ -24,6 +26,8 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         infoTxt.isHidden = false
+        loadingBG.isHidden = false
+        activityIndicator.startAnimating()
         if let ptId = patientId {
             dataService.getPatientMeds(ptId)
         }
@@ -81,6 +85,8 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
                 self.infoTxt.isHidden = false
             }
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.loadingBG.isHidden = true
         }
     }
     

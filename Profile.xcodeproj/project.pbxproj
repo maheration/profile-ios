@@ -64,6 +64,7 @@
 		482C97ED1E10845B0048756D /* ConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
 		482C97EF1E10852A0048756D /* MaterialTxtFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTxtFld.swift; sourceTree = "<group>"; };
 		482CAA211E241A3800CCED44 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		486F8C3A1E29A2B800C43CB5 /* Profile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Profile.entitlements; sourceTree = "<group>"; };
 		488C78881E11F236009C5549 /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		488F218A1E14A3CC00084B5D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		48A3EC521DFCCD7900683867 /* Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Profile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +140,7 @@
 		48A3EC541DFCCD7900683867 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				486F8C3A1E29A2B800C43CB5 /* Profile.entitlements */,
 				48A3EC751DFCCD8B00683867 /* Services */,
 				48A3EC761DFCCD9200683867 /* Model */,
 				48A3EC781DFCCD9B00683867 /* Controller */,
@@ -281,6 +283,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = J46335Z6MG;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					48A3EC651DFCCD7A00683867 = {
 						CreatedOnToolsVersion = 8.1;
@@ -505,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Profile/Profile.entitlements;
 				DEVELOPMENT_TEAM = J46335Z6MG;
 				INFOPLIST_FILE = Profile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -518,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Profile/Profile.entitlements;
 				DEVELOPMENT_TEAM = J46335Z6MG;
 				INFOPLIST_FILE = Profile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

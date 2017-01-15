@@ -18,6 +18,8 @@ class PatientMainVC: UIViewController, DataServiceDelegate {
     @IBOutlet weak var labsBg: UIView!
     @IBOutlet weak var labsLbl: UILabel!
     @IBOutlet weak var infoLbl: UILabel!
+    @IBOutlet weak var loadingBG: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //vars
     var dataService = DataService.instance
@@ -31,7 +33,8 @@ class PatientMainVC: UIViewController, DataServiceDelegate {
         labsBg.isHidden = true
         labsLbl.isHidden = true
         infoLbl.isHidden = false
-        
+        loadingBG.isHidden = false
+        activityIndicator.startAnimating()
         
         dataService.delegate = self
         if let userId = AuthService.instance.id {
@@ -66,6 +69,8 @@ class PatientMainVC: UIViewController, DataServiceDelegate {
                 self.labsLbl.isHidden = true
                 self.infoLbl.isHidden = false
             }
+            self.activityIndicator.stopAnimating()
+            self.loadingBG.isHidden = true
         }
         
     }
