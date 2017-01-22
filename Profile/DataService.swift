@@ -265,6 +265,38 @@ class DataService {
         }
     }
     
+    //PUT a deviceToken
+    func updateDeviceToken(_ ptId: String, deviceToken: String) {
+        let json : [String: Any] = ["deviceToken": deviceToken]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let url = URL(string: "\(BASE_API_URL)/account/\(ptId)/set_token") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            guard let token = AuthService.instance.authToken else { return }
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+                if (error == nil) {
+                    //success
+                    print("Device token was updated")
+                } else {
+                    //failure
+                    print("failed updating device token \(error!.localizedDescription)")
+                }
+            })
+            task.resume()
+            session.finishTasksAndInvalidate()
+            
+        } catch let err {
+            print(err)
+        }
+    }
+    
     //PUT a med
     func updateMed(_ medId: String, patientId:String, name: String, disc: String, completion: @escaping callback) {
         let json : [String: Any] = ["name": name, "disc": disc]

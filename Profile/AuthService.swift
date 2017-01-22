@@ -21,7 +21,7 @@ class AuthService {
             defaults.set(newValue, forKey: DEFAULTS_REGISTERED)
         }
     }
-    
+        
     var isAuthenticated : Bool? {
         get {
             return defaults.bool(forKey: DEFAULTS_AUTHENTICATED) == true

@@ -39,6 +39,9 @@ class PatientMainVC: UIViewController, DataServiceDelegate {
         dataService.delegate = self
         if let userId = AuthService.instance.id {
             dataService.getPatientPlan(userId)
+            if let deviceToken = AuthService.instance.deviceToken {
+                dataService.updateDeviceToken(userId, deviceToken: deviceToken)
+            }
         }
     }
 

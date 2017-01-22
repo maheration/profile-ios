@@ -17,6 +17,7 @@ let BASE_API_URL = "http://maheration.pagekite.me/v1"
 let GET_ALL_CODES = "\(BASE_API_URL)/codes/"
 
 
+
 // REGISTER url
 let POST_REGISTER_ACCT = "\(BASE_API_URL)/account/register"
 

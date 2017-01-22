@@ -22,6 +22,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismiss(notification:)))
         view.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
