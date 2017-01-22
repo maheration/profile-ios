@@ -77,8 +77,8 @@ class AuthService {
         }
     }
     
-    func registerUser(email username: String, password: String,firstName: String, lastName: String, isAdmin: Bool, completion: @escaping callback) {
-        let json = ["username": username, "firstName": firstName, "lastName": lastName, "password": password, "admin": isAdmin] as [String : Any]
+    func registerUser(email username: String, password: String,firstName: String, lastName: String, isAdmin: Bool, deviceToken: String ,completion: @escaping callback) {
+        let json = ["username": username, "firstName": firstName, "lastName": lastName, "password": password, "admin": isAdmin, "deviceToken": deviceToken] as [String : Any]
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         

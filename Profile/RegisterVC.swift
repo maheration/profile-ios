@@ -12,6 +12,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     
     //variables
     var isAdmin = false
+    var deviceToken = "disabled"
     
     //Outlets
     @IBOutlet weak var firstNameTxtFld: MaterialTxtFld!
@@ -58,7 +59,11 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
             return
         }
         
-        AuthService.instance.registerUser(email: emailTxt, password: password, firstName: firstName, lastName: lastName, isAdmin: isAdmin, completion: { Success in
+        if AuthService.instance.deviceToken != nil {
+            deviceToken = AuthService.instance.deviceToken!
+        } 
+        
+        AuthService.instance.registerUser(email: emailTxt, password: password, firstName: firstName, lastName: lastName, isAdmin: isAdmin, deviceToken: deviceToken ,completion: { Success in
             if Success {
                 AuthService.instance.login(email: emailTxt, password: password, completion: { (Success) in
                     if Success {

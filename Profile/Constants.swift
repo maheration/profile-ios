@@ -11,7 +11,7 @@ import Foundation
 typealias callback = (_ success: Bool) -> ()
 
 //BASE URL
-let BASE_API_URL = "http://localhost:3000/v1"
+let BASE_API_URL = "http://maheration.pagekite.me/v1"
 
 // GET all codes
 let GET_ALL_CODES = "\(BASE_API_URL)/codes/"

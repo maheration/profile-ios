@@ -75,9 +75,9 @@ class ConfirmVC: UIViewController, DataServiceDelegate, UITextFieldDelegate {
                             } else {
                                 self.admin = false
                             }
-                            self.performSegue(withIdentifier: "showRegisterVC", sender: self)
                             //delete this code based on id
                             self.dataService.deleteCode(code.id)
+                            self.performSegue(withIdentifier: "showRegisterVC", sender: self)
                         }
                     }
          

@@ -43,6 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("failed to register \(error)")
     }
+    
+    // Push notification received
+    // this func get invoked only when a user swipe the notif or gets it while the app is opened.. you can write any logic
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        // Print notification payload data
+        print("Push notification received: \(data)")
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -343,7 +343,7 @@ class DataService {
             if (error == nil) {
                 //success
                 let statusCode = (response as! HTTPURLResponse).statusCode
-                print("Status code \(statusCode)")
+                print("Deleting code was done. Status code \(statusCode)")
             } else {
                 //failed to delete
                 print("\(error!.localizedDescription)")
