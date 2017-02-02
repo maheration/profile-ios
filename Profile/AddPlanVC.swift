@@ -63,6 +63,10 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
             if Success {
                 //Success
                 print("Saved a new plan")
+                OperationQueue.main.addOperation {
+                    print(id)
+                    DataService.instance.sendNotif(id)
+                }
                 self.dismissVC()
                 
             } else {

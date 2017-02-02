@@ -196,6 +196,33 @@ class DataService {
     }
     
 
+    //send notification
+    func sendNotif(_ ptId: String) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        guard let url = URL(string: "\(BASE_API_URL)/account/\(ptId)/send_notif") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        guard let token = AuthService.instance.authToken else { return }
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            if (error == nil) {
+                //success
+                print("Notif was sent")
+            } else {
+                //Failure
+                print("failed sending notif")
+                print("URL session failed \(error!.localizedDescription)")
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+
+    }
+    
+    //GET patient meds
     func getPatientMeds(_ id: String) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
