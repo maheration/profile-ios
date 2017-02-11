@@ -32,7 +32,7 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -66,12 +66,11 @@ class AdminMedsDetailVC: UIViewController, DataServiceDelegate {
     }
     
     func medsLoaded() {
-        print("we are here")
         OperationQueue.main.addOperation {
             if let row = self.selectedRow {
                 self.medsTitleLbl.text = self.dataService.meds[row].name
                 self.medsDiscLbl.text = self.dataService.meds[row].disc
-                self.updatedLbl.text = "Last updated on\(self.dataService.meds[row].updatedDate)"
+                self.updatedLbl.text = "Last updated on \(self.dataService.meds[row].updatedDate)"
             }
         }
         

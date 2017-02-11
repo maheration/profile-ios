@@ -109,6 +109,24 @@ class DataService {
         session.finishTasksAndInvalidate()
     }
     
+    // GET reset badge number
+    func resetBadgeNum(_ id: String) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let url = URL(string: "\(GET_ALL_PTS)/\(id)/reset") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if (error == nil) {
+                // success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("You resetted the badge number and code is \(statusCode)")
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
     
     //POST a new plan
     

@@ -14,6 +14,7 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var labsTxtFld: MaterialTxtFld!
     @IBOutlet weak var planTxtFld: MaterialTextView!
     @IBOutlet weak var linkBtn: UIButton!
+    @IBOutlet weak var updateBtn: MaterialButton!
     
     var transPatient : Patient?
     var dataService = DataService.instance
@@ -36,13 +37,13 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 140
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += 100
+            self.view.frame.origin.y += 140
         }
     }
     
@@ -51,6 +52,8 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func updateBtnPressed(_ sender: UIButton) {
+        updateBtn.isEnabled = false
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(EditPlanVC.enableBtn), userInfo: nil, repeats: false)
         guard let dx = dxTxtFld.text, dxTxtFld.text != "", let labs = labsTxtFld.text, labsTxtFld.text != "", let plan = planTxtFld.text, planTxtFld.text != "" else {
             // show alert
             print("All fields are required")
@@ -62,12 +65,19 @@ class EditPlanVC: UIViewController, UITextFieldDelegate {
             if Success {
                 // updated
                 self.dismissVC()
+                OperationQueue.main.addOperation {
+                    self.dataService.sendNotif(patient.id)
+                }
             } else {
                 // failed
                 self.showAlert(with: "ERROR", message: "An error occured! Plan was not updated. Please try again")
                 print("Failed updating")
             }
         }
+    }
+    
+    func enableBtn() {
+        updateBtn.isEnabled = true
     }
 
     @IBAction func linkBtnPressed(_ sender: UIButton) {

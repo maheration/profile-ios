@@ -68,6 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        if let id = AuthService.instance.id {
+            //there is an id saved in userdefault. means that the user signed in at least once.
+            DataService.instance.resetBadgeNum(id)
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

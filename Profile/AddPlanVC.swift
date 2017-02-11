@@ -14,6 +14,7 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dxTxtFld: MaterialTxtFld!
     @IBOutlet weak var labsFreqTxtFld: MaterialTxtFld!
     @IBOutlet weak var planTxtFld: UITextView!
+    @IBOutlet weak var saveBtn: MaterialButton!
 
     //vars
     var patientId: String?
@@ -33,13 +34,13 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 140
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += 100
+            self.view.frame.origin.y += 140
         }
     }
     
@@ -52,6 +53,8 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func saveBtnPressed(_ sender: UIButton) {
+        saveBtn.isEnabled = false
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(AddPlanVC.enableBtn), userInfo: nil, repeats: false)
         guard let dx = dxTxtFld.text, dxTxtFld.text != "", let labs = labsFreqTxtFld.text, labsFreqTxtFld.text != "", let plan = planTxtFld.text, planTxtFld.text != "" else {
             // show an alert here
             print("ALL Fields are mandatory")
@@ -64,7 +67,6 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
                 //Success
                 print("Saved a new plan")
                 OperationQueue.main.addOperation {
-                    print(id)
                     DataService.instance.sendNotif(id)
                 }
                 self.dismissVC()
@@ -75,6 +77,10 @@ class AddPlanVC: UIViewController, UITextFieldDelegate {
                 self.showAlert(with: "Plan was not saved", message: "An error occured! Please try again")
             }
         }
+    }
+    
+    func enableBtn() {
+        saveBtn.isEnabled = true
     }
     
     func dismissVC() {

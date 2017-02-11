@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TeA-HD-dab">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TeA-HD-dab">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1274,13 +1274,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSJ-ff-baG">
-                                <rect key="frame" x="61" y="511" width="253" height="30"/>
-                                <state key="normal" title="Chose an educational link">
-                                    <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBs-rq-Xzm" customClass="MaterialButton" customModule="Profile" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBs-rq-Xzm" customClass="MaterialButton" customModule="Profile" customModuleProvider="target">
                                 <rect key="frame" x="61" y="561" width="253" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1295,13 +1289,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBc-aZ-nae">
-                                <rect key="frame" x="168" y="255" width="39" height="23.5"/>
+                                <rect key="frame" x="168" y="255" width="39" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTz-qc-oHA" customClass="MaterialTextView" customModule="Profile" customModuleProvider="target">
-                                <rect key="frame" x="61" y="286" width="253" height="210"/>
+                                <rect key="frame" x="61" y="287" width="253" height="210"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="ERG-ny-Fu7"/>
@@ -1314,13 +1308,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DQp-dk-PEp" firstAttribute="top" secondItem="TnM-Xh-4qI" secondAttribute="top" id="2Ta-Kv-MV0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aSJ-ff-baG" secondAttribute="trailing" constant="45" id="8nn-v5-VYK"/>
-                            <constraint firstItem="aSJ-ff-baG" firstAttribute="leading" secondItem="TnM-Xh-4qI" secondAttribute="leadingMargin" constant="45" id="B74-ds-1D9"/>
-                            <constraint firstItem="xBs-rq-Xzm" firstAttribute="top" secondItem="aSJ-ff-baG" secondAttribute="bottom" constant="20" id="CEC-ni-U4m"/>
                             <constraint firstItem="L1g-Nj-g1J" firstAttribute="leading" secondItem="TnM-Xh-4qI" secondAttribute="leadingMargin" constant="45" id="Di6-3W-Yag"/>
                             <constraint firstItem="DQp-dk-PEp" firstAttribute="leading" secondItem="TnM-Xh-4qI" secondAttribute="leading" id="E0O-pk-qEQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xBs-rq-Xzm" secondAttribute="trailing" constant="45" id="MNq-Rs-O2R"/>
-                            <constraint firstItem="aSJ-ff-baG" firstAttribute="top" secondItem="HTz-qc-oHA" secondAttribute="bottom" constant="15" id="Mx4-SF-QEW"/>
                             <constraint firstItem="fBc-aZ-nae" firstAttribute="centerX" secondItem="TnM-Xh-4qI" secondAttribute="centerX" id="PHz-jX-9z6"/>
                             <constraint firstItem="sfU-YF-nJv" firstAttribute="leading" secondItem="TnM-Xh-4qI" secondAttribute="leadingMargin" constant="45" id="QYP-Yy-4UE"/>
                             <constraint firstItem="HTz-qc-oHA" firstAttribute="top" secondItem="fBc-aZ-nae" secondAttribute="bottom" constant="8" id="SLT-3Z-uD6"/>
@@ -1328,6 +1318,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HTz-qc-oHA" secondAttribute="trailing" constant="45" id="XTe-ju-igc"/>
                             <constraint firstItem="sfU-YF-nJv" firstAttribute="top" secondItem="L1g-Nj-g1J" secondAttribute="bottom" constant="25" id="Y9Z-06-3zd"/>
                             <constraint firstItem="fBc-aZ-nae" firstAttribute="top" secondItem="sfU-YF-nJv" secondAttribute="bottom" constant="15" id="Z27-4U-3ae"/>
+                            <constraint firstItem="xBs-rq-Xzm" firstAttribute="top" secondItem="HTz-qc-oHA" secondAttribute="bottom" constant="65" id="bi9-W9-Zbv"/>
                             <constraint firstItem="OkS-KU-hVr" firstAttribute="leading" secondItem="TnM-Xh-4qI" secondAttribute="leading" id="d0p-nf-NhL"/>
                             <constraint firstItem="L1g-Nj-g1J" firstAttribute="top" secondItem="DQp-dk-PEp" secondAttribute="bottom" constant="70" id="efc-SR-EER"/>
                             <constraint firstItem="fRp-8x-SU2" firstAttribute="top" secondItem="OkS-KU-hVr" secondAttribute="bottom" id="fHV-FC-aEt"/>
@@ -1343,6 +1334,7 @@
                         <outlet property="dxTxtFld" destination="L1g-Nj-g1J" id="mbA-oz-m04"/>
                         <outlet property="labsFreqTxtFld" destination="sfU-YF-nJv" id="ker-0b-aMc"/>
                         <outlet property="planTxtFld" destination="HTz-qc-oHA" id="xJF-Gr-1E2"/>
+                        <outlet property="saveBtn" destination="xBs-rq-Xzm" id="Pru-Qs-haa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUQ-oh-LlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1396,7 +1388,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ge-MI-94F">
-                                <rect key="frame" x="157" y="599" width="60" height="60"/>
+                                <rect key="frame" x="157.5" y="599" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="A52-8y-jVm"/>
                                     <constraint firstAttribute="height" constant="60" id="DSI-wH-aMJ"/>
@@ -1482,7 +1474,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="medsLbl" destination="2jy-9e-LTQ" id="gcV-NI-xPC"/>
-                                            <segue destination="mGQ-Bv-yyT" kind="show" identifier="showAdminMedsDetailVC" id="dGx-fB-qkl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1529,6 +1520,7 @@
                         <outlet property="loadingBG" destination="fbm-nY-OcD" id="vRu-gQ-CEI"/>
                         <outlet property="tableView" destination="jSH-Zs-sU2" id="7cD-fm-YYd"/>
                         <segue destination="pTd-aS-iLM" kind="show" identifier="showAddMedVC" id="hhf-zo-Fs5"/>
+                        <segue destination="mGQ-Bv-yyT" kind="show" identifier="showAdminMedsDetailVC" id="gOW-pp-8PH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ree-4p-7nD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1654,6 +1646,7 @@
                     <connections>
                         <outlet property="medDiscTxtFld" destination="qeV-wp-Rjg" id="2pg-PM-n6f"/>
                         <outlet property="medNameTxtFld" destination="YFF-Oc-iRY" id="Qg1-1Z-fw2"/>
+                        <outlet property="saveBtn" destination="tbH-UY-Yo9" id="O2j-mx-7Y4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXJ-eb-rlh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1785,7 +1778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ivr-jO-HDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6152.8000000000002" y="-454.72263868065971"/>
+            <point key="canvasLocation" x="6198" y="-448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TjI-vi-byQ">
@@ -1869,15 +1862,6 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCX-ih-DsW">
-                                <rect key="frame" x="61" y="512" width="253" height="30"/>
-                                <state key="normal" title="Chose an educational link">
-                                    <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="linkBtnPressed:" destination="IHh-nI-dia" eventType="touchUpInside" id="hH0-yY-RSu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqP-xy-a4G" customClass="MaterialButton" customModule="Profile" customModuleProvider="target">
                                 <rect key="frame" x="61" y="562" width="253" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1916,6 +1900,7 @@
                             <constraint firstItem="KxY-lg-tIW" firstAttribute="top" secondItem="Icc-dp-V7O" secondAttribute="bottom" id="3tZ-bt-Jdm"/>
                             <constraint firstAttribute="trailing" secondItem="kGD-is-mDL" secondAttribute="trailing" id="49W-dd-XuK"/>
                             <constraint firstItem="zUI-NO-ar9" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leadingMargin" constant="45" id="7JV-HX-xt0"/>
+                            <constraint firstItem="vqP-xy-a4G" firstAttribute="top" secondItem="Tv2-4Q-LVg" secondAttribute="bottom" constant="65" id="Bcc-6r-mQo"/>
                             <constraint firstItem="kGD-is-mDL" firstAttribute="top" secondItem="wmr-cH-QFL" secondAttribute="top" id="DfU-f8-T6O"/>
                             <constraint firstItem="EPs-cu-dTL" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leadingMargin" constant="45" id="FaI-YA-8dz"/>
                             <constraint firstItem="Tv2-4Q-LVg" firstAttribute="top" secondItem="CA3-my-ma6" secondAttribute="bottom" constant="8" id="J8s-cO-4kl"/>
@@ -1926,13 +1911,9 @@
                             <constraint firstAttribute="trailing" secondItem="Icc-dp-V7O" secondAttribute="trailing" id="Uyn-qg-uwh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tv2-4Q-LVg" secondAttribute="trailing" constant="45" id="Vv5-Kq-yRh"/>
                             <constraint firstItem="zUI-NO-ar9" firstAttribute="top" secondItem="kGD-is-mDL" secondAttribute="bottom" constant="70" id="YKY-eE-t8V"/>
-                            <constraint firstItem="qCX-ih-DsW" firstAttribute="top" secondItem="Tv2-4Q-LVg" secondAttribute="bottom" constant="15" id="Ytb-O9-JbX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qCX-ih-DsW" secondAttribute="trailing" constant="45" id="c69-xR-JtN"/>
                             <constraint firstItem="EPs-cu-dTL" firstAttribute="top" secondItem="zUI-NO-ar9" secondAttribute="bottom" constant="25" id="eqs-qj-tPU"/>
-                            <constraint firstItem="qCX-ih-DsW" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leadingMargin" constant="45" id="fRL-FN-Lrs"/>
                             <constraint firstItem="Icc-dp-V7O" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leading" id="iZN-hP-u22"/>
                             <constraint firstItem="vqP-xy-a4G" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leadingMargin" constant="45" id="kSz-YQ-sI7"/>
-                            <constraint firstItem="vqP-xy-a4G" firstAttribute="top" secondItem="qCX-ih-DsW" secondAttribute="bottom" constant="20" id="nP3-b0-Nir"/>
                             <constraint firstItem="Tv2-4Q-LVg" firstAttribute="leading" secondItem="wmr-cH-QFL" secondAttribute="leadingMargin" constant="45" id="ynU-Y7-7pg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vqP-xy-a4G" secondAttribute="trailing" constant="45" id="zCY-5k-dHg"/>
                         </constraints>
@@ -1940,8 +1921,8 @@
                     <connections>
                         <outlet property="dxTxtFld" destination="zUI-NO-ar9" id="bOx-wr-hKY"/>
                         <outlet property="labsTxtFld" destination="EPs-cu-dTL" id="Uu6-nd-S5V"/>
-                        <outlet property="linkBtn" destination="qCX-ih-DsW" id="ufe-9d-VNw"/>
                         <outlet property="planTxtFld" destination="Tv2-4Q-LVg" id="7PS-hm-vX7"/>
+                        <outlet property="updateBtn" destination="vqP-xy-a4G" id="VFb-he-gP4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u31-Mw-2NL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1989,7 +1970,7 @@
                                     <constraint firstAttribute="height" constant="35" id="HMa-UF-GAp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Update">
                                     <color key="titleColor" red="0.37647058820000001" green="0.72156862749999995" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -2065,6 +2046,7 @@
                     <connections>
                         <outlet property="discMedTxtFld" destination="sXt-64-u9s" id="EhD-KZ-Pt0"/>
                         <outlet property="nameMedTxtFld" destination="oY3-KB-qOz" id="15p-gK-3hg"/>
+                        <outlet property="updateBtn" destination="SFh-Gz-Qd0" id="Gm6-vU-vYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdZ-h8-FYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2141,7 +2123,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No medication was entered for you. Please check back later :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXW-Wt-p6M">
-                                <rect key="frame" x="60" y="224" width="256" height="220"/>
+                                <rect key="frame" x="59.5" y="223.5" width="256" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="PsB-OH-GDw"/>
                                     <constraint firstAttribute="height" constant="220" id="SWv-Mi-eL6"/>

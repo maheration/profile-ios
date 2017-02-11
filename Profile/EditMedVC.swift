@@ -13,6 +13,7 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
     //outlets
     @IBOutlet weak var discMedTxtFld: MaterialTextView!
     @IBOutlet weak var nameMedTxtFld: MaterialTxtFld!
+    @IBOutlet weak var updateBtn: MaterialButton!
     
     //vars
     var selectedRow : Int?
@@ -39,13 +40,13 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 120
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += 100
+            self.view.frame.origin.y += 120
         }
     }
     
@@ -58,17 +59,22 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func updateBtnPressed(_ sender: UIButton) {
+        updateBtn.isEnabled = false
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(EditMedVC.enableBtn), userInfo: nil, repeats: false)
         guard let medName = nameMedTxtFld.text, nameMedTxtFld.text != "", let medDisc = discMedTxtFld.text, discMedTxtFld.text != "" else {
             //show alert 
             print("All fields are required")
             showAlert(with: "Error", message: "Please fill all fields and try again :)")
             return
         }
-        
-        DataService.instance.updateMed(med.id, patientId: patientId!, name: medName, disc: medDisc) { (Success) in
+        guard let ptId = patientId else { return }
+        DataService.instance.updateMed(med.id, patientId: ptId, name: medName, disc: medDisc) { (Success) in
             if Success {
                 //perfect
                 print("Meds was updated")
+                OperationQueue.main.addOperation {
+                    DataService.instance.sendNotif(ptId)
+                }
                 self.dismissVC()
             } else {
                 print("failed update")
@@ -76,6 +82,10 @@ class EditMedVC: UIViewController, UITextFieldDelegate {
                 //show alert
             }
         }
+    }
+    
+    func enableBtn() {
+        updateBtn.isEnabled = true
     }
     
     func dismissVC() {

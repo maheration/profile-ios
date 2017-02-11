@@ -13,6 +13,7 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
     //outlet
     @IBOutlet weak var medNameTxtFld: MaterialTxtFld!
     @IBOutlet weak var medDiscTxtFld: MaterialTextView!
+    @IBOutlet weak var saveBtn : MaterialButton!
 
     //vars
     var patientId : String?
@@ -29,13 +30,13 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 120
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += 100
+            self.view.frame.origin.y += 120
         }
     }
     
@@ -48,6 +49,8 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
+        saveBtn.isEnabled = false
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(AddMedVC.enableBtn), userInfo: nil, repeats: false)
         guard let medName = medNameTxtFld.text, medNameTxtFld.text != "", let medDisc = medDiscTxtFld.text, medDiscTxtFld.text != "" else {
             //show alert
             print("All fields are required")
@@ -58,6 +61,9 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
             DataService.instance.addNewMed(id, name: medName, disc: medDisc, completion: { (Success) in
                 if Success {
                     //saved a new med
+                    OperationQueue.main.addOperation {
+                        DataService.instance.sendNotif(id)
+                    }
                     print("Successfully saved a new med")
                     self.dismissVC()
                 } else {
@@ -67,6 +73,10 @@ class AddMedVC: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+    }
+    
+    func enableBtn() {
+        saveBtn.isEnabled = true
     }
 
 

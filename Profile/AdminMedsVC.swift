@@ -35,17 +35,21 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Maher")
         tableView.reloadData()
-
+        dataService.delegate?.medsLoaded()
     }
     
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
-        print("did appear")
+        
+        OperationQueue.main.addOperation {
+            if self.dataService.meds.count > 0 {
+                self.activityIndicator.stopAnimating()
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,12 +85,16 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
             print("Meds Loaded")
             if self.dataService.meds.count > 0 {
                 self.infoTxt.isHidden = true
+                self.tableView.reloadData()
+
             } else {
                 self.infoTxt.isHidden = false
+                self.tableView.reloadData()
+
             }
-            self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
             self.loadingBG.isHidden = true
+            print(self.dataService.meds.count)
         }
     }
     
@@ -120,6 +128,10 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
             } else {
                 self.infoTxt.isHidden = false
             }
+            guard let ptId = patientId else { return }
+            OperationQueue.main.addOperation {
+                self.dataService.sendNotif(ptId)
+            }
         }
     }
     
@@ -140,6 +152,10 @@ class AdminMedsVC: UIViewController, DataServiceDelegate, UITableViewDelegate, U
                 destinVC.patientId = id
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showAdminMedsDetailVC", sender: self)
     }
     
 }
