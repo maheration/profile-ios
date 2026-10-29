@@ -42,6 +42,4 @@ Developed in **2017–2018**. This repository preserves the original work as a h
 
 I provided the code to the University of Alberta for possible implementation. I cannot confirm subsequent implementation or adoption, and no measured clinical or operational outcomes are claimed.
 
-## Technical context
 
-The original project specifies Swift 3.0 and iOS 10.1. Open `Profile.xcodeproj` to inspect the project on macOS. Historical network and Apple signing settings are not a supported live service. This legacy implementation has known security and reliability limitations and should not be used with real patient data or deployed as-is.
