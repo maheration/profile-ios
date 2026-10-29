@@ -84,7 +84,7 @@ class ConfirmVC: UIViewController, DataServiceDelegate, UITextFieldDelegate {
             if self.isCodeCorrect == false {
                 //show alert
                 self.showAlert(with: "Wrong Code", message: "You entered a wrong code. Please double check your code or contact your coordinator")
-                print("Wrong code BITCH!")
+                print("Wrong code!")
             }
         }
         
